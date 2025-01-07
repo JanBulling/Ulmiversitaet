@@ -1,0 +1,63 @@
+---
+import { headerLinks } from "@/config";
+import { cn } from "@/lib/design-utils";
+import Link from "@/ui/Link.astro";
+import ThemeToggleButton from "./ThemeToggleButton.astro";
+import DrawerButton from "./DrawerButton.astro";
+
+const { pathname } = Astro.url;
+const subpath = pathname.match(/[^/]+/g);
+---
+
+<header id='header' class='fixed top-0 w-full h-16 z-50 border-b border-border'>
+  <div
+    class='h-full mx-auto px-5 max-w-screen-md flex items-center justify-between'
+  >
+    <div class='font-semibold flex items-center gap-2'>
+      <Link href='https://uni-ulm.de' external>
+        <img
+          src='/uni-ulm-logo.png'
+          alt='Ulmiversität'
+          class='h-10 mix-blend-screen dark:invert-[0.8]'
+        /></Link
+      >
+    </div>
+
+    <nav class='hidden md:flex items-center justify-center gap-4'>
+      {
+        headerLinks.map((link) => (
+          <Link
+            href={link.href}
+            class={cn(
+              pathname === link.href || "/" + subpath?.[0] === link.href
+                ? "font-semibold !text-black dark:!text-white"
+                : ""
+            )}
+          >
+            {link.text}
+          </Link>
+        ))
+      }
+    </nav>
+
+    <div class='hidden md:block'>
+      <ThemeToggleButton />
+    </div>
+
+    <div class='block md:hidden'>
+      <DrawerButton />
+    </div>
+  </div>
+</header>
+<script is:inline>
+  function onScroll() {
+    const header = document.getElementById("header");
+    if (window.scrollY > 0) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  }
+
+  document.addEventListener("scroll", onScroll);
+</script>

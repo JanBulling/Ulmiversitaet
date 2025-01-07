@@ -1,0 +1,48 @@
+---
+import Button from "@/ui/Button.astro";
+import { Menu, X } from "lucide-astro";
+---
+
+<Button
+  id='header-drawer-button'
+  size='icon'
+  variant='ghost'
+  aria-label={`Toggle drawer open and closed`}
+>
+  <Menu id='drawer-open' />
+  <X id='drawer-close' />
+</Button>
+
+<style>
+  #header-drawer-button > #drawer-open {
+    @apply block;
+  }
+
+  #header-drawer-button > #drawer-close {
+    @apply hidden;
+  }
+
+  #header-drawer-button.open > #drawer-open {
+    @apply hidden;
+  }
+
+  #header-drawer-button.open > #drawer-close {
+    @apply block;
+  }
+</style>
+<script is:inline>
+  function toggleDrawer() {
+    const drawer = document.getElementById("drawer");
+    const drawerButton = document.getElementById("header-drawer-button");
+    drawer?.classList.toggle("open");
+    drawerButton?.classList.toggle("open");
+  }
+
+  function initializeDrawerButton() {
+    const drawerButton = document.getElementById("header-drawer-button");
+    drawerButton?.addEventListener("click", toggleDrawer);
+  }
+
+  document.addEventListener("astro:after-swap", initializeDrawerButton);
+  initializeDrawerButton();
+</script>

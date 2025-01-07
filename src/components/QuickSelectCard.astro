@@ -1,0 +1,23 @@
+---
+import type { QuickSelect } from "@/content/quick-select";
+import Link from "@/ui/Link.astro";
+import { ExternalLink } from "lucide-astro";
+
+interface Props {
+  quickSelect: QuickSelect;
+}
+
+const { quickSelect } = Astro.props;
+---
+
+<Link href={quickSelect.href} external class='w-full'>
+  <div
+    class='p-2 border border-border rounded-md bg-secondary text-secondary-foreground relative'
+  >
+    <ExternalLink class='absolute top-0 right-0 m-2 w-4 h-4' />
+
+    <h3 class='font-semibold text-xl'>{quickSelect.name}</h3>
+
+    <p>{quickSelect.description}</p>
+  </div>
+</Link>

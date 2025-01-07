@@ -1,0 +1,25 @@
+---
+import { headerLinks } from "@/config";
+import Link from "@/ui/Link.astro";
+import ThemeToggleButton from "./ThemeToggleButton.astro";
+// const { pathname } = Astro.url;
+// const subpath = pathname.match(/[^/]+/g);
+---
+
+<div
+  id='drawer'
+  class='fixed inset-0 z-40 overflow-hidden h-0 flex flex-col items-center justify-center md:hidden bg-neutral-100 dark:bg-neutral-900 transition-[height] duration-300 ease-in-out'
+>
+  <nav class='flex flex-col items-center space-y-2'>
+    {headerLinks.map((link) => <Link href={link.href}>{link.text}</Link>)}
+  </nav>
+
+  <div class='block md:hidden mt-4'>
+    <ThemeToggleButton drawer />
+  </div>
+</div>
+<style>
+  #drawer.open {
+    @apply h-full;
+  }
+</style>

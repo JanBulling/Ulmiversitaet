@@ -1,0 +1,48 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { cva, type VariantProps } from "class-variance-authority";
+
+const link = cva(
+  "w-fit text-black/75 dark:text-white/75 hover:text-black hover:dark:text-white",
+  {
+    variants: {
+      variant: {
+        primary: "",
+        underline: "underline underline-offset-2",
+      },
+    },
+  }
+);
+
+export interface Props
+  extends Omit<HTMLAttributes<"a">, "href">,
+    VariantProps<typeof link> {
+  href: string;
+  external?: boolean;
+}
+
+const {
+  class: className,
+  variant = "primary",
+  href,
+  external,
+  ...props
+} = Astro.props;
+---
+
+{
+  external ? (
+    <a
+      href={href}
+      target='_blank'
+      class={link({ variant, className })}
+      {...props}
+    >
+      <slot />
+    </a>
+  ) : (
+    <a href={href} class={link({ variant, className })} {...props}>
+      <slot />
+    </a>
+  )
+}
