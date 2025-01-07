@@ -8,7 +8,7 @@ export const quickSelect = [
   {
     name: "CampusOnline",
     href: "https://campusonline.uni-ulm.de/",
-    description: "Notenübersicht",
+    description: "Prüfungsübersicht",
     image: "/img/uni-logo.png",
     darkImageInvert: true,
   },

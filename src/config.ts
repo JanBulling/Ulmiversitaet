@@ -13,4 +13,8 @@ export const META_THEME_COLORS = {
   dark: "#09090b",
 };
 
-export const headerLinks = [{ text: "Home", href: "/" }];
+export const headerLinks = [
+  { text: "Home", href: "/" },
+  { text: "Politik", href: "/uni-politik" },
+  { text: "Navigation", href: "/navigation" },
+];
