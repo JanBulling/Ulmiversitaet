@@ -1,5 +1,6 @@
 ---
 import type { QuickSelect } from "@/content/quick-select";
+import { cn } from "@/lib/design-utils";
 import Link from "@/ui/Link.astro";
 import { ExternalLink } from "lucide-astro";
 
@@ -12,12 +13,29 @@ const { quickSelect } = Astro.props;
 
 <Link href={quickSelect.href} external class='w-full'>
   <div
-    class='p-2 border border-border rounded-md bg-secondary text-secondary-foreground relative'
+    class='p-2 border border-border rounded-md shadow hover:bg-muted hover:text-muted-foreground relative'
   >
-    <ExternalLink class='absolute top-0 right-0 m-2 w-4 h-4' />
+    <ExternalLink class='hidden xl:block absolute top-0 right-0 m-2 w-4 h-4' />
+    <div class='flex items-center gap-4'>
+      {
+        quickSelect.image && (
+          <img
+            src={quickSelect.image}
+            alt=''
+            class={cn(
+              "md:w-10 md:h-10 w-8 h-8 rounded-md object-cover",
+              quickSelect.darkImageInvert && "dark:invert-[0.9]"
+            )}
+          />
+        )
+      }
+      <div>
+        <h3 class='font-semibold md:text-xl'>{quickSelect.name}</h3>
 
-    <h3 class='font-semibold text-xl'>{quickSelect.name}</h3>
-
-    <p>{quickSelect.description}</p>
+        <p class='hidden md:inline-block line-clamp-1 w-full'>
+          {quickSelect.description}
+        </p>
+      </div>
+    </div>
   </div>
 </Link>

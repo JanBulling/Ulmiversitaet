@@ -20,12 +20,12 @@
     --info: 200.4 98% 39.4%;
     --info-foreground: 204 93.8% 93.7%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 201 21% 58%;
+    --primary-foreground: 201 21% 10%;
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 45 17% 66%;
+    --accent-foreground: 45 17% 8%;
 
     --radius: 0.5rem;
   }
@@ -47,12 +47,12 @@
     --info: 200.4 98% 39.4%;
     --info-foreground: 204 93.8% 93.7%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 201 21% 58%;
+    --primary-foreground: 201 21% 95%;
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 45 17% 66%;
+    --accent-foreground: 45 17% 8%;
   }
 }
 
