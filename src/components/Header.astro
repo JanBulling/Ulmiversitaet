@@ -9,16 +9,19 @@ const { pathname } = Astro.url;
 const subpath = pathname.match(/[^/]+/g);
 ---
 
-<header id='header' class='fixed top-0 w-full h-16 z-50 border-b border-border'>
+<header
+  id='header'
+  class='fixed top-0 w-full h-16 z-50 border-b border-border transition-all duration-300 ease-in-out'
+>
   <div
-    class='h-full mx-auto px-5 max-w-screen-md flex items-center justify-between'
+    class='h-full mx-auto px-5 max-w-screen-xl flex items-center justify-between'
   >
     <div class='font-semibold flex items-center gap-2'>
       <Link href='https://uni-ulm.de' external>
         <img
           src='/uni-ulm-logo.png'
           alt='Ulmiversität'
-          class='h-10 mix-blend-screen dark:invert-[0.8]'
+          class='h-10 dark:invert-[0.8]'
         /></Link
       >
     </div>

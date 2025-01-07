@@ -107,3 +107,12 @@ input.disabled\:disabled:disabled {
   -webkit-opacity: 1;
   opacity: 1;
 }
+
+header {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+header.scrolled {
+  @apply bg-background/75;
+  @apply backdrop-blur-sm saturate-200;
+}

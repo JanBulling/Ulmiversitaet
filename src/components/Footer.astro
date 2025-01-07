@@ -1,0 +1,32 @@
+---
+import { siteConfig } from "@/config";
+import Link from "@/ui/Link.astro";
+---
+
+<footer
+  class='py-5 px-4 overflow-hidden whitespace-nowrap border-t border-border'
+>
+  <div
+    class='max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between'
+  >
+    <div
+      class='font-semibold flex items-center justify-center sm:justify-start gap-2 z-50'
+    >
+      <Link href='/'>{siteConfig.title}</Link>
+    </div>
+
+    <Link href='/impressum'>Impressum</Link>
+
+    <div class='flex items-center text-accent text-xs'>
+      <p>&#169; {new Date().getFullYear()}</p>
+      <Link href='https://jan-bulling.com' external variant='accent'
+        >Jan Bulling</Link
+      >
+      <Link
+        href='https://www.instagram.com/rau__stefan/'
+        external
+        variant='accent'>Stefan Rau</Link
+      >
+    </div>
+  </div>
+</footer>

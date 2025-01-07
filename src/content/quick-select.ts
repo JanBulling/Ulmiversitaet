@@ -27,7 +27,7 @@ export const quickSelect = [
     name: "Mensa",
     href: "https://mensa.jan-bulling.com",
     description: "Tägliches Essensangebot",
-    image: "/img/studierendenwerk.jpg",
+    image: "/img/studierendenwerk.png",
   },
   {
     name: "CloudStore",
@@ -36,7 +36,7 @@ export const quickSelect = [
     image: "/img/cloudstore.webp",
   },
   {
-    name: "Print",
+    name: "Print@Uni",
     href: "https://print.uni-ulm.de",
     description: "Drucken im Uninetz",
   },

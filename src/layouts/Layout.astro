@@ -4,10 +4,12 @@ import "@/styles/globals.css";
 import { siteConfig } from "../config";
 import Header from "@/components/Header.astro";
 import Drawer from "@/components/Drawer.astro";
+import Footer from "@/components/Footer.astro";
 
 // const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title, description } = Astro.props;
+const siteTitle = title ? `${title} | ${siteConfig.title}` : siteConfig.title;
 ---
 
 <!doctype html>
@@ -37,8 +39,8 @@ const { title, description } = Astro.props;
     <!-- Canonical URL -->
     <!-- <link rel='canonical' href={canonicalURL} /> -->
 
-    <title>{`${title} | ${siteConfig.title}`}</title>
-    <meta name='title' content={`${title} | ${siteConfig.title}`} />
+    <title>{siteTitle}</title>
+    <meta name='title' content={siteTitle} />
     <meta name='description' content={siteConfig.description} />
 
     <!-- Open Graph / Facebook -->
@@ -61,12 +63,12 @@ const { title, description } = Astro.props;
       content={new URL(siteConfig.ogImage, Astro.url)}
     />
   </head>
-  <body class='min-h-svh font-sans antialiased py-16'>
+  <body class='min-h-svh font-sans antialiased pt-16'>
     <Header />
     <Drawer />
     <main class='max-w-screen-2xl mx-auto'>
       <slot />
     </main>
-    <!-- <Footer /> -->
+    <Footer />
   </body>
 </html>

@@ -1,0 +1,51 @@
+---
+import { Button } from "@/ui/Button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "./Card";
+import { ExternalLink } from "lucide-astro";
+import Link from "@/ui/Link.astro";
+import type { LinkCard } from "@/lib/types/link-card";
+
+interface Props {
+  content: LinkCard;
+}
+
+const { content } = Astro.props;
+---
+
+<Card className='h-fit'>
+  <CardHeader>
+    <CardTitle>{content.heading}</CardTitle>
+    {
+      content.description && (
+        <CardDescription>{content.description}</CardDescription>
+      )
+    }
+  </CardHeader>
+  <CardContent className='space-y-8'>
+    {
+      content.links.map((link) => (
+        <div>
+          <Link href={link.href} external>
+            <Button>
+              {link.text} <ExternalLink class='w-4 h-4' />
+            </Button>
+          </Link>
+          <p class='text-sm text-muted-foreground mt-1 space-x-1'>
+            <span>{link.description}</span>
+            {link.descriptionLinks?.map((descriptionLink) => (
+              <Link href={descriptionLink.href} external variant='underline'>
+                {descriptionLink.text}
+              </Link>
+            ))}
+          </p>
+        </div>
+      ))
+    }
+  </CardContent>
+</Card>
