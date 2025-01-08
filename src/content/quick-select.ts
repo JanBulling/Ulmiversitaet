@@ -26,7 +26,7 @@ export const quickSelect = [
   {
     name: "Mensa",
     href: "https://mensa.jan-bulling.com",
-    description: "Tägliches Essensangebot",
+    description: "Essensangebot",
     image: "/img/studierendenwerk.png",
   },
   {

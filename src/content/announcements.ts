@@ -1,8 +1,8 @@
 export const announcements = [
   {
-    title: "WiMa-La-PhyMa",
+    title: "Jan ist in Uppsala",
     description:
-      "Die WiMa-La-PhyMa (die beste Uni-Party des Jahres) steht bald an! Der Ticket-Verkauf startet demnächst!",
+      "Ab dem 16. Januar 2025 ist Jan leider nicht mehr in Ulm. Aber keine Sorge: Er kommt wieder zurück!",
   },
   {
     title: "Weihnachtsvorlesung",

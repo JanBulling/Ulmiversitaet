@@ -1,9 +1,14 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { Content } from "@/content/impressum.md";
 ---
 
 <Layout title='Impressum'>
   <div class='py-8 px-2'>
-    Stefan Rau, 89077 Ulm haftet für alles auf dieser Seite
+    <h1 class='text-2xl md:text-5xl text-primary font-bold'>Impressum</h1>
+
+    <div class='mt-16 prose dark:prose-invert w-full max-w-max'>
+      <Content />
+    </div>
   </div>
 </Layout>

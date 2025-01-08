@@ -27,15 +27,22 @@ const { content } = Astro.props;
       )
     }
   </CardHeader>
-  <CardContent className='space-y-8'>
+  <CardContent className='space-y-4'>
     {
       content.links.map((link) => (
         <div>
-          <Link href={link.href} external>
-            <Button>
-              {link.text} <ExternalLink class='w-4 h-4' />
-            </Button>
-          </Link>
+          {link.shortLink ? (
+            <Link href={link.href} external variant='underline'>
+              {link.text}
+            </Link>
+          ) : (
+            <Link href={link.href} external>
+              <Button variant='secondary'>
+                {link.text}{" "}
+                <ExternalLink class='w-4 h-4 hidden md:inline-block' />
+              </Button>
+            </Link>
+          )}
           <p class='text-sm text-muted-foreground mt-1 space-x-1'>
             <span>{link.description}</span>
             {link.descriptionLinks?.map((descriptionLink) => (

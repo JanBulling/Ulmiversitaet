@@ -2,6 +2,8 @@ Es gibt verschiedene Organe in der Universiätspolitik:
 
 ## StuPa (Studierenden Parlamenet)
 
+Link zum [StuPa](https://stuve.uni-ulm.de/gremien/stupa)
+
 Das StuPa ist die Plattform um über Themen, zu diskutieren, die die Uni Ulm wirklich bewegen. Hier kann jede:r tolle Ideen oder auch seine/ihre Unzufriedenheit in Konstruktivität verwandeln. Zum einen hat im StuPa jede:r Studierende Rede- und Antragsrecht. Also kannst auch du dich jederzeit einbringen, komm' einfach zu einer der Sitzungen oder noch besser: kündige dein Thema vorher an! Und zum anderern kannst du dich bei den Wahlen in jedem Sommersemester wählen lassen und mitentscheiden! Im StuPa sitzen 11 direkt gewählte parlamentarische Vertreter:innen, die sich in Listen zur Wahl aufstellen.
 
 Es geht um eine Vielfalt an Themen, die uns im studentischen Leben beschäftigen sollten. Wie können mehr Lernplätze in der Uni entstehen? Wieso gibt es so wenig günstigen studentischen Wohnraum? Wie geht es weiter mit dem musischen Zentrum? Wie soll an der Uni geworben werden und wie bitte lieber nicht? Und ganz grundsätzlich: Was stellt die Verfasste Studierendenschaft mit den 13€ Beitrag an, die sie von jedem\*r Studierenden bekommt?
@@ -17,6 +19,8 @@ Kurz zusammengefasst: **Das Studierendenparlament...**
 
 ## FSR (Fachschaftenrat)
 
+Link zum [Fachschaftenrat](https://stuve.uni-ulm.de/gremien/fsr)
+
 Der Fachschaftenrat (FSR) besteht sind 24 studentischen Mitgliedern, die jedes Jahr im Sommer von allen Studierenden gewählt werden. Aus jeder der vier Fakultäten kommen dabei sechs Vertreter:innen.
 
 Kurz zusammengefasst: **Der FSR...**
@@ -30,6 +34,14 @@ Der FSR dient auch als Austauschplatform zwischen den Fachbereichsvertretungen. 
 
 Egal ob du frisch an der Uni oder in der StuVe bist und dir das nur mal anschauen möchtest, oder ob du ein alter Hase bist, der schon genau weißt was verändert werden soll, schau doch mal bei uns vorbei! Den Termin unserer nächsten Sitzung findest hier auf der Homepage.
 
-## STEX (Studierenden Executive)
+## StEx (Studierenden Executive)
+
+Link zurw [StEx](https://stuve.uni-ulm.de/stex/)
 
 ## Fachschaften
+
+Link zu den [Fachschaften](https://stuve.uni-ulm.de/fachbereichsvertretungen)
+
+## Referate
+
+Link zu den [Referaten](https://stuve.uni-ulm.de/referate/)
