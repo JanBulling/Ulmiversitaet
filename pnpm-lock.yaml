@@ -38,6 +38,9 @@ dependencies:
   lucide-astro:
     specifier: ^0.469.0
     version: 0.469.0(astro@5.1.3)
+  minimasonry:
+    specifier: ^1.3.2
+    version: 1.3.2
   react:
     specifier: ^19.0.0
     version: 19.0.0
@@ -53,6 +56,11 @@ dependencies:
   tailwindcss-animate:
     specifier: ^1.0.7
     version: 1.0.7(tailwindcss@3.4.17)
+
+devDependencies:
+  '@types/minimasonry':
+    specifier: ^1.3.5
+    version: 1.3.5
 
 packages:
 
@@ -1344,6 +1352,10 @@ packages:
     dependencies:
       '@types/unist': 3.0.3
     dev: false
+
+  /@types/minimasonry@1.3.5:
+    resolution: {integrity: sha512-k06l7VDZHs8C+eLgK+FIvmKMvMI/CK4tOhLrUAGyB/Ms/QEciei7AwU5PhrsFkR4O+5yDl49P0i62gnVmIr9Hw==}
+    dev: true
 
   /@types/ms@0.7.34:
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
@@ -2916,6 +2928,10 @@ packages:
     resolution: {integrity: sha512-jSCU7/VB1loIWBZe14aEYHU/+1UMEHoaO7qxCOVJOw9GgH72VAWppxNcjU+x9a2k3GSIBXNKxXQFqRvvZ7vr3A==}
     engines: {node: '>=10.0.0'}
     hasBin: true
+    dev: false
+
+  /minimasonry@1.3.2:
+    resolution: {integrity: sha512-ygvf5JIR4NT1LbM6o8z1oz1icTkta72gXKwidvSqIVxuzVd/P21UI0Wbq1J+MStAu50Vvr8qWYNSz1W4uycqMQ==}
     dev: false
 
   /minimatch@9.0.5:

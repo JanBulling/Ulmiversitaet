@@ -1,9 +1,10 @@
 ---
-import { headerLinks } from "@/config";
+import { headerLinks, siteConfig } from "@/config";
 import { cn } from "@/lib/design-utils";
 import Link from "@/ui/Link.astro";
 import ThemeToggleButton from "./ThemeToggleButton.astro";
 import DrawerButton from "./DrawerButton.astro";
+import Logo from "./Logo.astro";
 
 const { pathname } = Astro.url;
 const subpath = pathname.match(/[^/]+/g);
@@ -16,15 +17,8 @@ const subpath = pathname.match(/[^/]+/g);
   <div
     class='h-full mx-auto px-5 max-w-screen-xl flex items-center justify-between'
   >
-    <div class='font-semibold flex items-center gap-2'>
-      <Link href='https://uni-ulm.de' external>
-        <img
-          src='/uni-ulm-logo.png'
-          alt='Ulmiversität'
-          class='h-10 dark:invert-[0.8]'
-        /></Link
-      >
-    </div>
+    <!-- Logo -->
+    <Logo />
 
     <nav class='hidden md:flex items-center justify-center gap-4'>
       {

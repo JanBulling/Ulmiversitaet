@@ -1,0 +1,35 @@
+---
+import { announcements } from "@/content/announcements";
+---
+
+<section class='relative px-2 md:px-8 py-8 mt-16 overflow-hidden'>
+  <!-- Background -->
+  <div
+    class='absolute inset-0 -z-10 h-full w-full bg-card'
+    style='background-image: url(/img/bg-image.jpg); background-size: cover; background-position: center;'
+  >
+  </div>
+  <div
+    class='absolute inset-0 -z-10 h-full w-full bg-gradient-to-r from-primary md:via-primary/90 to-transparent'
+  >
+  </div>
+
+  <!-- Content -->
+  <div class='max-w-screen-2xl mx-auto px-2'>
+    <h2
+      class='w-max text-xl md:text-3xl font-semibold bg-primary text-primary-foreground py-1 px-2'
+    >
+      Ankündigungen
+    </h2>
+    <div class='space-y-2 mt-8'>
+      {
+        announcements.map((ann) => (
+          <div class='bg-primary text-primary-foreground px-2 py-1 w-fit'>
+            <h3 class='font-semibold'>{ann.title}</h3>
+            <p>{ann.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

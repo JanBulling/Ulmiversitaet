@@ -1,65 +1,14 @@
 ---
-import QuickSelectCard from "@/components/QuickSelectCard.astro";
 import Layout from "@/layouts/Layout.astro";
-import { quickSelect } from "@/content/quick-select";
-import { cards } from "@/content/cards";
-import LinkCard from "@/components/cards/LinkCard.astro";
-import { announcements } from "@/content/announcements";
+import QuickSelectSection from "@/components/sections/QuickSelectSection.astro";
+import AnnouncementSection from "@/components/sections/AnnouncementSection.astro";
+import LinksSection from "@/components/sections/LinksSection.astro";
 ---
 
 <Layout>
-  <div
-    class='flex md:items-center flex-col md:flex-row gap-4 max-w-screen-2xl mx-auto px-2'
-  >
-    <div class='md:px-8'>
-      <h1 class='text-2xl md:text-5xl font-semibold text-foreground'>
-        <span class='text-primary font-bold'>Ulm</span>iversität
-      </h1>
-      <h2>Das inoffizielle Uni-Ulm Link-Portal</h2>
-    </div>
+  <QuickSelectSection />
 
-    <section
-      class='flex-1 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4'
-    >
-      {quickSelect.map((quick) => <QuickSelectCard quickSelect={quick} />)}
-    </section>
-  </div>
+  <AnnouncementSection />
 
-  <section class='px-2 md:px-8 py-8 mt-16 relative overflow-hidden'>
-    <div class='h-full w-full absolute inset-0 -z-10 bg-card'>
-      <img src='/img/bg-image.jpg' class='h-full w-full object-cover' />
-    </div>
-    <div
-      class='h-full w-full absolute inset-0 bg-gradient-to-r from-primary via-primary to-transparent -z-10'
-    >
-    </div>
-    <div class='max-w-screen-2xl mx-auto px-2'>
-      <h2
-        class='py-1 px-2 bg-primary text-primary-foreground w-max text-xl md:text-3xl font-semibold'
-      >
-        Ankündigungen
-      </h2>
-      <div class='space-y-2 mt-8 w-fit'>
-        {
-          announcements.map((ann) => (
-            <div class='text-primary-foreground bg-primary px-2 py-1'>
-              <h3 class='font-semibold'>{ann.title}</h3>
-              {ann.description}
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <section class='mt-16 max-w-screen-2xl mx-auto px-2'>
-    <h2 class='text-xl md:text-3xl font-semibold text-foreground'>
-      Weitere nützliche Links
-    </h2>
-    <div
-      class='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 md:gap-4 mt-4'
-    >
-      {cards.map((card) => <LinkCard content={card} />)}
-    </div>
-  </section>
+  <LinksSection />
 </Layout>

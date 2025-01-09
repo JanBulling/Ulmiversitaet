@@ -21,7 +21,7 @@ const { quickSelect } = Astro.props;
         quickSelect.image && (
           <img
             src={quickSelect.image}
-            alt=''
+            alt={quickSelect.name}
             class={cn(
               "md:w-10 md:h-10 w-8 h-8 object-cover",
               quickSelect.darkImageInvert && "dark:invert-[0.9]"

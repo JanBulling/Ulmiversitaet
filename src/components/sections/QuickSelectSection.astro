@@ -1,0 +1,21 @@
+---
+import { quickSelect } from "@/content/quick-select";
+import QuickSelectCard from "../QuickSelectCard.astro";
+---
+
+<section
+  class='flex flex-col md:flex-row gap-4 md:items-center max-w-screen-2xl mx-auto px-2'
+>
+  <div class='md:px-8'>
+    <h1 class='text-2xl md:text-5xl font-semibold text-foreground'>
+      <span class='text-primary font-bold'>Ulm</span>iversität
+    </h1>
+    <h2>Das inoffizielle Uni-Ulm Link-Portal</h2>
+  </div>
+
+  <div
+    class='flex-1 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4'
+  >
+    {quickSelect.map((quick) => <QuickSelectCard quickSelect={quick} />)}
+  </div>
+</section>

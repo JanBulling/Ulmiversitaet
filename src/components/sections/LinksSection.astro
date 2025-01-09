@@ -1,0 +1,26 @@
+---
+import { cards } from "@/content/cards";
+import LinkCard from "../cards/LinkCard.astro";
+---
+
+<section class='mt-16 max-w-screen-2xl mx-auto md:px-2'>
+  <h2 class='text-xl px-2 md:px-0 md:text-3xl font-semibold text-foreground'>
+    Weitere nützliche Links
+  </h2>
+  <div class='masonry-container mt-4'>
+    {cards.map((card) => <LinkCard content={card} />)}
+  </div>
+</section>
+<script
+  src='https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js'
+  is:inline></script>
+<script is:inline>
+  var grid = document.querySelector(".masonry-container");
+  var msnry = new Masonry(grid, {
+    itemSelector: ".masonry-item",
+    percentPosition: true,
+    gutter: 8,
+    transitionDuration: 0,
+  });
+  console.log(msnry);
+</script>

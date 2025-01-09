@@ -1,0 +1,28 @@
+---
+import { cn } from "@/lib/design-utils";
+
+interface Props {
+  size?: "md" | "sm";
+}
+
+const { size = "md" } = Astro.props;
+---
+
+<div>
+  <a href='/' class='flex items-center gap-2'>
+    <img
+      src='/logo.png'
+      alt='Ulmiversität'
+      class={cn("dark:invert", size === "md" && "h-10", size === "sm" && "h-8")}
+    />
+    <p class='font-semibold'>
+      <span
+        class={cn(
+          "font-bold text-primary",
+          size === "md" && "text-xl",
+          size === "sm" && "text-lg"
+        )}>Ulm</span
+      >iversität
+    </p>
+  </a>
+</div>

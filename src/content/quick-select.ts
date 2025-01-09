@@ -15,7 +15,7 @@ export const quickSelect = [
   {
     name: "Sogo",
     href: "https://sogo.uni-ulm.de/",
-    description: "Emails",
+    description: "E-Mails",
     image: "/img/sogo.png",
   },
   {

@@ -18,7 +18,9 @@ interface Props {
 const { content } = Astro.props;
 ---
 
-<Card className='h-fit'>
+<Card
+  className='h-fit border-y md:border border-x-0 masonry-item w-full md:w-[calc(50%-4px)] xl:w-[calc(33.33333%-5px)] mb-2'
+>
   <CardHeader>
     <CardTitle>{content.heading}</CardTitle>
     {

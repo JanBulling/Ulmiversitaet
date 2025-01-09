@@ -239,7 +239,7 @@ export const explanationCard: LinkCard = {
   links: [
     {
       href: "https://www.uni-ulm.de/einrichtungen/kiz/service-katalog/e-mail-kalender-zusammenarbeit/e-mail/e-mail-programme-konfigurieren/",
-      text: "Email Client einrichten",
+      text: "E-Mail Client einrichten",
       shortLink: true,
     },
     {
