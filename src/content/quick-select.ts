@@ -2,13 +2,13 @@ export const quickSelect = [
   {
     name: "Moodle",
     href: "https://moodle.uni-ulm.de",
-    description: "Lernplatform",
+    description: "Lernplattform",
     image: "/img/moodle.png",
   },
   {
     name: "CampusOnline",
     href: "https://campusonline.uni-ulm.de/",
-    description: "Prüfungsübersicht",
+    description: "Prüfungsverwaltung",
     image: "/img/uni-logo.png",
     darkImageInvert: true,
   },
