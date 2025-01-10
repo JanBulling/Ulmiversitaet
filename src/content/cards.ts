@@ -261,7 +261,7 @@ export const internationalOfficeCard: LinkCard = {
   links: [
     {
       href: "https://www.uni-ulm.de/io/",
-      text: "International office",
+      text: "International Office",
       description: "Erreichbar unter",
       descriptionLinks: [
         {
