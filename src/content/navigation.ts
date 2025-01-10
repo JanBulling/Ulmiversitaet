@@ -18,6 +18,50 @@ export const paymentChipCard: NavigationLocations = {
   ],
 };
 
+export const printing: NavigationLocations = {
+  title: "Drucken",
+  color: "#737373",
+  coordinates: [
+    { lat: 48.42159412621158, lng: 9.948311686305349 },
+    {
+      lat: 48.42082148425913,
+      lng: 9.947634002127085,
+      comment: "PC-Pool 2, 41.2.1011/2",
+    },
+    {
+      lat: 48.42064234182948,
+      lng: 9.947789819952131,
+      comment: "PC-Pool 9, 41.2.101.4",
+    },
+    {
+      lat: 48.42263097122526,
+      lng: 9.953297448337,
+      comment: "PC-Pool 1, M23/263",
+    },
+    {
+      lat: 48.42273521464681,
+      lng: 9.955427569850416,
+      comment: "PC-Pool 5, N25/1303",
+    },
+    {
+      lat: 48.423139534615935,
+      lng: 9.957176941104994,
+      comment: "PC-Pool 6, O27/214",
+    },
+    {
+      lat: 48.42323071680837,
+      lng: 9.954346176535772,
+      comment: "PC-Pool 8, M25/2403",
+    },
+    {
+      lat: 48.42245289618264,
+      lng: 9.95620799218685,
+      comment: "PC-Pool 11, O26/198",
+    },
+    { lat: 48.42297244793778, lng: 9.957280029312436, comment: "O27/2204" },
+  ],
+};
+
 export const paymentParking: NavigationLocations = {
   title: "Parkgebüren aufladen",
   color: "#2563eb",
@@ -122,6 +166,7 @@ type NavigationLocations = {
 export const navigationLocations = [
   renewChipCard,
   paymentChipCard,
+  printing,
   paymentParking,
   busStops,
   other,

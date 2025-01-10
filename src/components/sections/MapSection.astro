@@ -1,0 +1,70 @@
+---
+import { navigationLocations } from "@/content/navigation";
+import { NavigationDot } from "./NavigationDot";
+
+const minLat = 48.418536244764894;
+const maxLat = 48.425669338145596;
+const minLng = 9.942003121794178;
+const maxLng = 9.95971371576036;
+
+function relativePosition(lat: number, lng: number) {
+  const relativeX = ((lng - minLng) / (maxLng - minLng)) * 100;
+  const relativeY = ((lat - minLat) / (maxLat - minLat)) * 100;
+
+  return {
+    x: Math.min(Math.max(relativeX, 0), 100),
+    y: 100 - Math.min(Math.max(relativeY, 0), 100),
+  };
+}
+
+const positions = navigationLocations
+  .map((group) =>
+    group.coordinates.map((coord) => {
+      const relPos = relativePosition(coord.lat, coord.lng);
+
+      return {
+        title: group.title,
+        color: group.color,
+        comment: coord.comment,
+        top: relPos.y,
+        left: relPos.x,
+      };
+    })
+  )
+  .flat();
+
+const groups = navigationLocations.map((group) => {
+  return { title: group.title, color: group.color };
+});
+---
+
+<section class='max-w-screen-2xl mx-auto mt-8'>
+  <div class='px-2'>
+    <h4 class='font-semibold text-2xl'>Karte der Universität</h4>
+    <div class='flex flex-wrap items-center gap-x-4'>
+      {
+        groups.map((group) => (
+          <div class='flex items-center gap-2'>
+            <div
+              style={{
+                backgroundImage: `radial-gradient(${group.color}aa, #ffffff00)`,
+              }}
+              class='flex items-center justify-center cursor-pointer group rounded-full w-3 h-3 md:w-5 md:h-5'
+            >
+              <div
+                class='h-1 w-1 md:h-2 md:w-2 rounded-full group-hover:h-2 md:group-hover:h-3 group-hover:w-2 md:group-hover:w-3 transition-all'
+                style={{ backgroundColor: group.color }}
+              />
+            </div>
+            <p style={{ color: group.color }}>{group.title}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class='mt-2 relative border-x-0 border-y md:border border-border'>
+    <img src='/img/uni-map.png' class='dark:invert' />
+    {positions.map((dot) => <NavigationDot dot={dot} client:load />)}
+  </div>
+</section>

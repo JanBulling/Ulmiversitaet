@@ -1,5 +1,3 @@
-Es gibt verschiedene Organe in der Universiätspolitik:
-
 ## StuPa (Studierenden Parlamenet)
 
 Link zum [StuPa](https://stuve.uni-ulm.de/gremien/stupa)
