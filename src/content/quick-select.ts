@@ -39,6 +39,7 @@ export const quickSelect = [
     name: "Print@Uni",
     href: "https://print.uni-ulm.de",
     description: "Drucken im Uninetz",
+    image: "/img/print-logo.png",
   },
 ];
 
