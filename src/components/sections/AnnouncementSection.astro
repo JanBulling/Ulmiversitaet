@@ -1,5 +1,6 @@
 ---
 import { announcements } from "@/content/announcements";
+import Link from "@/ui/Link.astro";
 ---
 
 <section class='relative px-2 md:px-8 py-8 mt-16 overflow-hidden'>
@@ -27,6 +28,11 @@ import { announcements } from "@/content/announcements";
           <div class='bg-primary text-primary-foreground px-2 py-1 w-fit'>
             <h3 class='font-semibold'>{ann.title}</h3>
             <p>{ann.description}</p>
+            {ann.link && (
+              <Link href={ann.link.href} external variant='underline'>
+                {ann.link.text}
+              </Link>
+            )}
           </div>
         ))
       }

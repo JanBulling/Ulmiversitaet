@@ -2,17 +2,37 @@
 import { siteConfig } from "@/config";
 import Link from "@/ui/Link.astro";
 import Logo from "./Logo.astro";
+import { Github, Instagram } from "lucide-astro";
+import { Button } from "@/ui/Button";
 ---
 
 <footer
   class='py-5 px-4 overflow-hidden whitespace-nowrap border-t border-border bg-card'
 >
   <div
-    class='max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2'
+    class='max-w-screen-xl mx-auto flex flex-col items-end justify-center gap-2'
   >
-    <Logo size='sm' />
+    <div
+      class='w-full flex flex-col md:flex-row items-center justify-between gap-2'
+    >
+      <Logo size='sm' />
 
-    <Link href='/impressum'>Impressum</Link>
+      <div class='gap-2 flex'>
+        <Link href='/'>Home</Link>
+        <Link href='/impressum'>Impressum</Link>
+      </div>
+
+      <div class='flex items-center gap-2'>
+        <Link href='https://instagram.com/ulmiversitaet' external
+          ><Button variant='ghost' size='icon' className='rounded-md'
+            ><Instagram /></Button
+          ></Link
+        >
+        <Link href='https://github.com/JanBulling/ulmiversitaet' external
+          ><Button variant='ghost' size='icon'><Github /></Button></Link
+        >
+      </div>
+    </div>
 
     <div class='flex items-center text-accent text-xs'>
       <p>&#169; {new Date().getFullYear()}</p>

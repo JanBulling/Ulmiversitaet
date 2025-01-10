@@ -1,11 +1,10 @@
-export const announcements = [
+export const announcements: Announcement[] = [
   {
     title: "Ulmiversität auf Instagram!",
     description: "Folge uns hier auf Insta!",
     link: {
       href: "https://instagram.com/ulmiversitaet",
       text: "Instagram",
-      shortLink: true,
     },
   },
   {
@@ -19,3 +18,12 @@ export const announcements = [
       "Am 19.12.2024 findet dieses Jahr die Weihnachtsvorlesung in H4/5 um 16:00Uhr statt!",
   },
 ];
+
+export type Announcement = {
+  title: string;
+  description: string;
+  link?: {
+    href: string;
+    text: string;
+  };
+};
