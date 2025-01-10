@@ -22,6 +22,7 @@ export const quickSelect = [
     name: "Campus 4",
     href: "https://campus4.uni-ulm.de/",
     description: "Studienbescheinigungen",
+     image: "/img/campus4.png",
   },
   {
     name: "Mensa",
@@ -39,6 +40,7 @@ export const quickSelect = [
     name: "Print@Uni",
     href: "https://print.uni-ulm.de",
     description: "Drucken im Uninetz",
+    image: "/img/print-logo.png",
   },
 ];
 
