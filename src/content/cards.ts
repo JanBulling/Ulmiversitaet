@@ -2,12 +2,12 @@ import type { LinkCard } from "@/lib/types/link-card";
 
 export const accountCard: LinkCard = {
   heading: "Accounts",
-  description: "Account management der Uni Ulm",
+  description: "Account-Management der Uni Ulm",
   links: [
     {
       href: "https://portal.uni-ulm.de/idmFrontend/",
       text: "Identitätsmanagement",
-      description: "Zentrale Verwaltung von Personendaten und der Chipkarte.",
+      description: "Zentrale Verwaltung von Personendaten und der Chipkarte",
       descriptionLinks: [
         {
           href: "https://www.uni-ulm.de/einrichtungen/kiz/service-katalog/account-zugang/idm/",
@@ -18,7 +18,7 @@ export const accountCard: LinkCard = {
     {
       href: "https://www.uni-ulm.de/in/sgi/services/account-system/account-erstellen/",
       text: "SGI Account",
-      description: "Zugang zu PCs der SG Informatik.",
+      description: "Zugang zu PCs der SG Informatik",
       descriptionLinks: [
         {
           href: "https://psi.informatik.uni-ulm.de:1244/sgi/password-reset",
@@ -76,7 +76,7 @@ export const studienwerkCard: LinkCard = {
     {
       href: "https://www.bafoeg-digital.de/",
       text: "BAföG",
-      description: "Bafög Antrag stellen.",
+      description: "BAföG-Antrag stellen.",
       descriptionLinks: [
         {
           href: "https://studierendenwerk-ulm.de/bafoeg-finanzen/faq/",
@@ -88,7 +88,7 @@ export const studienwerkCard: LinkCard = {
       href: "https://tl1host.eu/SWUL/#admission",
       text: "Wohnung beantragen",
       shortLink: true,
-      description: "Studentenwohnung in Ulm beantragen",
+      description: "Studieredenwohnung in Ulm beantragen",
       descriptionLinks: [
         {
           href: "https://studierendenwerk-ulm.de/wohnen/",
@@ -104,7 +104,7 @@ export const studienwerkCard: LinkCard = {
     {
       href: "https://studierendenwerk-ulm.de/essen-trinken/mensen-und-cafeterien/",
       text: "Mensaplan",
-      description: "Offizieller Mensa Plan des Studienwerkes",
+      description: "Offizieller Mensaplan des Studienwerkes",
       shortLink: true,
       descriptionLinks: [
         {
@@ -137,7 +137,7 @@ export const printCard: LinkCard = {
       descriptionLinks: [
         {
           href: "https://www.uni-ulm.de/einrichtungen/kiz/service-katalog/medien/druck-weiterverarbeitung/abschlussarbeiten/",
-          text: "Genauere Informationen",
+          text: "Mehr Informationen",
         },
       ],
     },
@@ -183,7 +183,7 @@ export const freetimeCard: LinkCard = {
     {
       href: "https://cloud.aktivkonzepte.de/hspulm/index.html#%23/Home/KursListe",
       text: "Hochschulsport",
-      description: "Zu beginn jedes Semesters wird eine Mail verschickt.",
+      description: "Zu Beginn jedes Semesters wird eine Mail verschickt.",
       descriptionLinks: [
         {
           href: "https://www.uni-ulm.de/einrichtungen/hochschulsport/",
@@ -214,11 +214,11 @@ export const bibCard: LinkCard = {
       href: "https://ulm.ibs-bw.de/",
       text: "Bibliothekskatalog",
       description:
-        "Einfach Bücher in der Bib ausleihen. Sie können unter diesem Link nach Anmeldung verlängert werden.",
+        "Bücher in der Bibliothek einfach ausleihen und bequem nach Anmeldung über diesen Link verlängern.",
       descriptionLinks: [
         {
           href: "https://www.uni-ulm.de/einrichtungen/kiz/service-katalog/bibliotheksnutzung/",
-          text: "Generelle informationen",
+          text: "Mehr Informationen",
         },
       ],
     },
@@ -249,7 +249,7 @@ export const explanationCard: LinkCard = {
     },
     {
       href: "https://www.uni-ulm.de/fileadmin/website_uni_ulm/kiz/medien/Drucker/follow_me_prin/kiz_printing_linux_mac_win.pdf",
-      text: "Drucker hinzufügen",
+      text: "Drucker lokal hinzufügen",
       shortLink: true,
     },
   ],
@@ -257,11 +257,11 @@ export const explanationCard: LinkCard = {
 
 export const internationalOfficeCard: LinkCard = {
   heading: "International Office",
-  description: "Auslandssemester / Erasmus austausch Programm",
+  description: "Auslandssemester / Erasmus+ Programm",
   links: [
     {
       href: "https://www.uni-ulm.de/io/",
-      text: "International office",
+      text: "International Office",
       description: "Erreichbar unter",
       descriptionLinks: [
         {
@@ -272,7 +272,7 @@ export const internationalOfficeCard: LinkCard = {
     },
     {
       href: "https://www.uni-ulm.de/io/mob-out/ausland-semester-jahr/erasmus-sms/bewerbung-intern/",
-      text: "Erausmus & Bewerbung",
+      text: "Erausmus+ & Bewerbung",
     },
     {
       href: "https://www.service4mobility.com/europe/PortalServlet?identifier=ULM01&showAll=0&showPartner=0&preselectTab=ver_nav_button&sprache=de",
@@ -291,7 +291,7 @@ export const internationalOfficeCard: LinkCard = {
     },
     {
       href: "https://www.service4mobility.com/europe/LoginServlet",
-      text: "Mobility online",
+      text: "Mobility-Online",
     },
   ],
 };

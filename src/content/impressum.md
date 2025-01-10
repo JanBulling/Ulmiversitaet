@@ -8,7 +8,7 @@ E-Mail: [stefan.rau@uni-ulm.de](mailto:stefan.rau@uni-ulm.de)
 
 ### Haftung für Inhalte
 
-Als Betreiber dieser inoffiziellen Website bemühen wir uns, die bereitgestellten Inhalte aktuell und korrekt zu halten. Für die Richtigkeit, Vollständigkeit oder Aktualität der Inhalte übernehmen wir jedoch keine Gewähr. Diese Website dient lediglich als Serviceangebot für Studierende und Mitarbeiter der Universität Ulm und steht in keiner offiziellen Verbindung mit der Universität Ulm.
+Als Betreiber dieser inoffiziellen Website bemühen wir uns, die bereitgestellten Inhalte aktuell und korrekt zu halten. Für die Richtigkeit, Vollständigkeit oder Aktualität der Inhalte übernehmen wir jedoch keine Gewähr. Diese Website dient lediglich als Serviceangebot für Studierende der Universität Ulm und steht in keiner offiziellen Verbindung mit der Universität Ulm.
 
 ### Haftung für Links
 
