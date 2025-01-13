@@ -74,7 +74,7 @@ Jedes Jahr wählen die Studierenden ihre Vertreter:innen für vier zentrale Grem
 - Themen wie Lehrqualität, Berufungen und studentische Belange stehen im Fokus.
 - bitte 🥺👉🏻👈🏻
 
-
+---
 ## Mitmachen in der StuVe
 - Studierende können sich in Gremien, Fachbereichsvertretungen oder Referaten engagieren.  
 - Wahlen finden jedes Sommersemester statt.  
