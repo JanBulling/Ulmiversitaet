@@ -310,28 +310,63 @@ export const stuveCard: LinkCard = {
       text: "Uni-Politik",
       description: "Informationen zur Hochschulpolitik an der Universität Ulm.",
     },
-    {
-      href: "https://wiki.stuve.uni-ulm.de/de/home",
-      text: "StuVe Wiki",
-      description: "Das zentrale Wiki für Informationen rund um die Stuve.",
-    },
+
     {
       href: "https://stuve.uni-ulm.de/infos-fuer-ersties/infos-zu-deiner-ese",
       text: "ESE",
       description: "Wichtige Informationen für Erstsemester-Studierende.",
     },
     {
-      href: "https://it-tools.stuve.uni-ulm.de/",
-      text: "StuVe-IT",
-      description: "Nützliche IT-Tools und Ressourcen der Stuve.",
+      href: "https://wiki.stuve.uni-ulm.de/de/home",
+      text: "StuVe-Wiki",
+      shortLink: true,
     },
     {
       href: "https://pad.stuve.uni-ulm.de/",
       text: "StuVe-Pad",
-      description: "Kollaborative Plattform für Studierende der Uni Ulm.",
+      shortLink: true,
+    },
+    {
+      href: "https://it-tools.stuve.uni-ulm.de/",
+      text: "StuVe-IT",
+      shortLink: true,
     },
   ],
 };
+
+export const jobCard: LinkCard = {
+  heading: "Jobs",
+  description: "Die Uni Ulm als Arbeitgeber!",
+  links: [
+    {
+      href: "https://www.informatik.uni-ulm.de/hiwiboerse/",
+      text: "Convenda",
+      shortLink: true,
+    },
+    {
+      href: "https://stuve.uni-ulm.de/aktuelles/mitarbeit-jobs",
+      text: "StuVe-Jobs",
+       shortLink: true,
+    },
+    {
+      href: "https://uni-ulm.jobteaser.com/de",
+      text: "Career-Center",
+      shortLink: true,
+    },
+    {
+      href: "https://www.uni-ulm.de/universitaet/karriere/career-service/fuer-studierende/stellenboerse/",
+      text: "Abschlussarbeiten",
+      shortLink: true,
+    },
+    {
+      href: "https://www.uni-ulm.de/einrichtungen/zuv/dezernat-3/stellenportal/stellenangebote/",
+      text: "Sonstige",
+      shortLink: true,
+    },
+  ],
+};
+
+
 
 export const cards: LinkCard[] = [
   accountCard,
@@ -344,4 +379,5 @@ export const cards: LinkCard[] = [
   freetimeCard,
   explanationCard,
   internationalOfficeCard,
+  jobCard,
 ];
