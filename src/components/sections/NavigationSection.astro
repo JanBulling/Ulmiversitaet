@@ -10,7 +10,7 @@ import { ExternalLink } from "lucide-astro";
     <h2
       class='flex items-center gap-4 text-xl px-2 md:px-0 md:text-3xl font-semibold text-foreground w-fit group hover:underline'
     >
-      Campus Navigation
+      Campus-Navigation
       <svg
         xmlns='http://www.w3.org/2000/svg'
         width='24'
@@ -39,10 +39,13 @@ import { ExternalLink } from "lucide-astro";
 
 <Card className='w-full mt-4 border-y md:border border-x-0'>
   <CardContent className='p-0 flex flex-col md:flex-row'>
-    <Link href='/navigation' class='block'>
+    <Link
+      href='/navigation'
+      class='w-full md:w-1/3 max-w-md block' <!-- Ensure the link matches the image dimensions -->
+    >
       <img
         src='/img/uni-map.png'
-        class='w-full max-h-48 md:max-h-none object-cover md:w-1/3 md:max-w-md dark:invert border-r border-border'
+        class='w-full h-auto object-cover dark:invert border-r border-border'
         alt='Campus Map'
       />
     </Link>
