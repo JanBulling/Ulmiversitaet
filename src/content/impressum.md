@@ -21,3 +21,5 @@ Die Inhalte und Werke auf dieser Website unterliegen dem deutschen Urheberrecht.
 ### Hinweis zu verwendeten Materialien
 
 Einige der auf dieser Website verwendeten Logos und Materialien, wie z. B. Logos der Universität Ulm oder anderer Institutionen, könnten urheberrechtlich geschützt sein. Diese werden ausschließlich zu informativen Zwecken und ohne kommerziellen Nutzen verwendet. Sollten Rechteinhaber die Verwendung dieser Inhalte beanstanden, bitten wir um eine kurze Nachricht. Die betreffenden Inhalte werden dann umgehend entfernt.
+
+Fotos auf Startseite: [Universität Ulm](https://www.uni-ulm.de/universitaet/hochschulkommunikation/presse-und-oeffentlichkeitsarbeit/bilder-und-formulare-zum-download/campus-bilder/)
