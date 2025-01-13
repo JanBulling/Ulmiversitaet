@@ -296,10 +296,48 @@ export const internationalOfficeCard: LinkCard = {
   ],
 };
 
+export const stuveCard: LinkCard = {
+  heading: "StuVe",
+  description: "Studentische Vertretung der Uni Ulm",
+  links: [
+    {
+      href: "https://stuve.uni-ulm.de/aktuelles",
+      text: "Aktuelles von der Stuve",
+      description: "Neuigkeiten und Updates von der studentischen Vertretung.",
+    },
+    {
+      href: "https://www.ulmiversitaet.de/uni-politik",
+      text: "Uni-Politik",
+      description: "Informationen zur Hochschulpolitik an der Universität Ulm.",
+    },
+    {
+      href: "https://wiki.stuve.uni-ulm.de/de/home",
+      text: "StuVe Wiki",
+      description: "Das zentrale Wiki für Informationen rund um die Stuve.",
+    },
+    {
+      href: "https://stuve.uni-ulm.de/infos-fuer-ersties/infos-zu-deiner-ese",
+      text: "ESE",
+      description: "Wichtige Informationen für Erstsemester-Studierende.",
+    },
+    {
+      href: "https://it-tools.stuve.uni-ulm.de/",
+      text: "StuVe-IT",
+      description: "Nützliche IT-Tools und Ressourcen der Stuve.",
+    },
+    {
+      href: "https://pad.stuve.uni-ulm.de/",
+      text: "StuVe-Pad",
+      description: "Kollaborative Plattform für Studierende der Uni Ulm.",
+    },
+  ],
+};
+
 export const cards: LinkCard[] = [
   accountCard,
   studiesCard,
   bibCard,
+  stuveCard,
   studisekCard,
   studienwerkCard,
   printCard,
