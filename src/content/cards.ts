@@ -302,8 +302,8 @@ export const stuveCard: LinkCard = {
   links: [
     {
       href: "https://stuve.uni-ulm.de/aktuelles",
-      text: "Aktuelles von der Stuve",
-      description: "Neuigkeiten und Updates von der studentischen Vertretung.",
+      text: "Aktuelles von der StuVe",
+      shortLink: true,
     },
     {
       href: "https://www.ulmiversitaet.de/uni-politik",
