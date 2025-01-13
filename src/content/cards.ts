@@ -76,7 +76,7 @@ export const studienwerkCard: LinkCard = {
     {
       href: "https://studierendenwerk-ulm.de/bafoeg-finanzen/faq/",
       text: "BAföG",
-      description: "Direkt ",
+      description: "Direkt",
       descriptionLinks: [
         {
           href: "https://www.bafoeg-digital.de/",
@@ -86,9 +86,9 @@ export const studienwerkCard: LinkCard = {
     },
     {
       href: "https://studierendenwerk-ulm.de/wohnen/",
-      text: "Wohnenn",
+      text: "Wohnen",
       shortLink: true,
-      description: "Studieredenwohnung in Ulm beantragen. ",
+      description: "Studieredenwohnung in Ulm beantragen.",
       descriptionLinks: [
         {
           href: "https://tl1host.eu/SWUL/#admission",
