@@ -5,60 +5,75 @@ Die **Studierendenvertretung (StuVe)** organisiert sich in verschiedenen Gremien
 ## [Studierendenexekutive (StEx)](https://stuve.uni-ulm.de/stex/)
 Die StEx setzt die Aufgaben der StuVe um und gliedert sich in verschiedene Ressorts.
 
+
 ### Ressorts der StEx
 
-#### Ressort Lehre
-- Verantwortlich für die Qualität und Weiterentwicklung der universitären Lehre.  
-- Zusammenarbeit mit Fachbereichsvertretungen, dem AK QSM, dem SenA Lehre und anderen Gremien.  
-- Fokus auf die Vertretung der studentischen Perspektive gegenüber der Universität.  
+- **Lehre:**  
+  Sicherung und Weiterentwicklung der Lehrqualität, Vertretung der studentischen Perspektive und Zusammenarbeit mit universitären Gremien.
 
-#### Ressort Kultur & Bildung
-- Organisation kultureller und bildender Veranstaltungen (z. B. Uni-Partys, Programmkino, Vorträge).  
-- Förderung gesellschaftlicher, politischer und ökologischer Bildung.  
-- Zusammenarbeit mit anderen universitären Gruppen und Referaten.  
+- **Kultur & Bildung:**  
+  Organisation kultureller und bildender Veranstaltungen sowie Förderung des studentischen Austauschs.
 
-#### Ressort Innen & Außen
-- Öffentlichkeitsarbeit und Repräsentation der StuVe.  
-- Herausgabe von Infomails, Pressemitteilungen und Organisation von Aktionen.  
-- Vernetzung innerhalb der Universität und mit externen Organisationen.  
+- **Innen & Außen:**  
+  Öffentlichkeitsarbeit, Vernetzung und Repräsentation der StuVe auf interner und externer Ebene.
 
-#### Ressort Finanzen
-- Haushaltsplanung, Verwaltung der Gelder und Auszahlung.  
-- Sicherstellung der Einhaltung von Finanzrichtlinien und des Haushaltsplans.  
-- Zusammenarbeit mit Ausschüssen und anderen Organen der StuVe.  
+- **Finanzen:**  
+  Haushaltsplanung, Verwaltung der Gelder und Sicherstellung der Einhaltung finanzieller Richtlinien.
 
-#### Ressort Infrastruktur
-- Verwaltung von Räumen, IT und Anlagen der StuVe.  
-- Sicherstellung und Ausbau von Lernflächen und Veranstaltungsinfrastruktur.  
-- Fokus auf Betriebssicherheit und technische Ausstattung.  
+- **Infrastruktur:**  
+  Verwaltung von Räumen, IT und Lernflächen sowie Unterstützung bei der Organisation von Veranstaltungen.
 
-#### Ressort Datenschutz & Recht
-- Sicherstellung der Einhaltung der Datenschutzgrundverordnung (DSGVO).  
-- Beratung und Unterstützung bei rechtlichen Fragen.  
-- Überwachung datenschutzrelevanter Prozesse innerhalb der StuVe.  
+- **Datenschutz & Recht:**  
+  Einhaltung der Datenschutzgrundverordnung und rechtliche Beratung innerhalb der StuVe.
 
-#### Ressort Personal
-- Verwaltung von Arbeitsverträgen und Stellenangeboten.  
-- Betreuung der Referent:innen und Koordination des Personals.  
+- **Personal:**  
+  Verwaltung von Stellenangeboten und Betreuung des StuVe-Personals.
 
----
 
-## Weitere Gremien und Strukturen
-
-### [Studierendenparlament (StuPa)](https://stuve.uni-ulm.de/gremien/stupa)
+## [Studierendenparlament (StuPa)](https://stuve.uni-ulm.de/gremien/stupa)
 - Höchstes Gremium der StuVe mit direkter Wahl durch alle Studierenden.  
 - Diskutiert und entscheidet über studentische Anliegen und Finanzen.  
 - Wählt die Mitglieder der Studierendenexekutive.  
 
-### [Fachschaftenrat (FSR)](https://stuve.uni-ulm.de/gremien/fsr)
+## [Fachschaftenrat (FSR)](https://stuve.uni-ulm.de/gremien/fsr)
 - Austauschplattform der Fachbereichsvertretungen mit Fokus auf Lehre.  
 - Bespricht studienrelevante Themen wie Prüfungsordnungen und Lehrberichte.  
 
-### [Referate](https://stuve.uni-ulm.de/referate/)
+## [Referate](https://stuve.uni-ulm.de/referate/)
 - Unterstützung der StuVe durch spezialisierte Arbeitsbereiche (z. B. BAföG-Beratung, Kultur, Mobilität).  
 - Organisation von Veranstaltungen, Aktionen und Beratungsangeboten.  
 
 ---
+
+## Wahlen der StuVe
+
+### Was wird gewählt?
+Jedes Jahr wählen die Studierenden ihre Vertreter:innen für vier zentrale Gremien:
+
+1. **Senat**  
+   Höchstes universitäres Gremium, zuständig für Prüfungsordnungen, Berufungsverfahren und strategische Entscheidungen.  
+   
+2. **Fakultätsrat**  
+   Vertretung auf Fakultätsebene, kümmert sich um die Verteilung von Mitteln und die Entwicklung der Lehre.  
+   
+3. **Studierendenparlament (StuPa)**  
+   Oberstes Gremium der studentischen Selbstverwaltung, zuständig für Finanzen, Veranstaltungen und studentische Belange.  
+   
+4. **Fachschaftenrat (FSR)**  
+   Austauschplattform der Fachbereichsvertretungen mit Fokus auf Lehrthemen und studentische Anliegen.  
+
+### Wie kann man kandidieren?
+- Für die Kandidatur müssen Listen eingereicht werden. Die erforderlichen Unterlagen gibt es unter **Dokumente** auf der StuVe-Homepage.  
+- Abgabeorte:  
+  - **Senat und Fakultätsrat:** Wahlbüro (Helmholtzstraße).  
+  - **StuPa und FSR:** Büro des studentischen Wahlausschusses (N26/320) oder per Hauspost.  
+- Fristen beachten!  
+
+### Warum wählen?
+- Deine Stimme beeinflusst die Verteilung der Gelder und die Gestaltung von Forschung, Lehre und studentischen Angeboten.   
+- Themen wie Lehrqualität, Berufungen und studentische Belange stehen im Fokus.
+- bitte 🥺👉🏻👈🏻
+
 
 ## Mitmachen in der StuVe
 - Studierende können sich in Gremien, Fachbereichsvertretungen oder Referaten engagieren.  
