@@ -7,29 +7,29 @@ export const accountCard: LinkCard = {
     {
       href: "https://portal.uni-ulm.de/idmFrontend/",
       text: "Identitätsmanagement",
-      description: "Zentrale Verwaltung von Personendaten und der Chipkarte",
+      description: "Zentrale Verwaltung von Personendaten und der Chipkarte.",
       descriptionLinks: [
         {
           href: "https://www.uni-ulm.de/einrichtungen/kiz/service-katalog/account-zugang/idm/",
-          text: "Mehr Informationen",
+          text: "Mehr Informationen.",
         },
       ],
     },
     {
       href: "https://www.uni-ulm.de/in/sgi/services/account-system/account-erstellen/",
       text: "SGI Account",
-      description: "Zugang zu PCs der SG Informatik",
+      description: "Zugang zu PCs der SG Informatik.",
       descriptionLinks: [
         {
           href: "https://psi.informatik.uni-ulm.de:1244/sgi/password-reset",
-          text: "Passwort zurücksetzen",
+          text: "Passwort zurücksetzen.",
         },
       ],
     },
     {
       href: "https://imap.uni-ulm.de/lists",
       text: "Mailing Listen",
-      description: "Ein- / Austragen aus Mailinglisten",
+      description: "Ein- / Austragen aus Mailinglisten.",
     },
   ],
 };
@@ -54,7 +54,7 @@ export const studiesCard: LinkCard = {
     {
       href: "https://campusonline.uni-ulm.de/CoronaNG/index.html?token=1.0/1736343018/Corona/okb23/99699073e75a12c3a1c55359f6a1b511",
       text: "CoronaNG",
-      description: "Anmeldungen für bestimmte Kurse (z.B. ASQ)",
+      description: "Anmeldungen für bestimmte Kurse (z.B. ASQ).",
     },
     {
       href: "https://www.uni-ulm.de/einrichtungen/kiz/weiteres/campus-navigation/hoersaalfinder/",
@@ -63,7 +63,7 @@ export const studiesCard: LinkCard = {
       descriptionLinks: [
         {
           href: "https://www.uni-ulm.de/einrichtungen/kiz/weiteres/campus-navigation/campus-navigator/",
-          text: "Campusnavigator",
+          text: "Campusnavigator.",
         },
       ],
     },
@@ -74,25 +74,25 @@ export const studienwerkCard: LinkCard = {
   heading: "Studierendenwerk",
   links: [
     {
-      href: "https://www.bafoeg-digital.de/",
+      href: "https://studierendenwerk-ulm.de/bafoeg-finanzen/faq/",
       text: "BAföG",
-      description: "BAföG-Antrag stellen.",
+      description: "Direkt ",
       descriptionLinks: [
         {
-          href: "https://studierendenwerk-ulm.de/bafoeg-finanzen/faq/",
-          text: "Offizielle Informationen",
+          href: "https://www.bafoeg-digital.de/",
+          text: "Antrag stellen.",
         },
       ],
     },
     {
-      href: "https://tl1host.eu/SWUL/#admission",
-      text: "Wohnung beantragen",
+      href: "https://studierendenwerk-ulm.de/wohnen/",
+      text: "Wohnenn",
       shortLink: true,
-      description: "Studieredenwohnung in Ulm beantragen",
+      description: "Studieredenwohnung in Ulm beantragen. ",
       descriptionLinks: [
         {
-          href: "https://studierendenwerk-ulm.de/wohnen/",
-          text: "Mehr Informationen",
+          href: "https://tl1host.eu/SWUL/#admission",
+          text: "Wohnung beantragen.",
         },
       ],
     },
@@ -104,16 +104,16 @@ export const studienwerkCard: LinkCard = {
     {
       href: "https://studierendenwerk-ulm.de/essen-trinken/mensen-und-cafeterien/",
       text: "Mensaplan",
-      description: "Offizieller Mensaplan des Studienwerkes",
+      description: "Offizieller Mensaplan des Studienwerkes.",
       shortLink: true,
       descriptionLinks: [
         {
           href: "https://mensaplan.fs-et.de/",
-          text: "Alternative FS ET",
+          text: "Alternative FS ET.",
         },
         {
           href: "https://mensa.jan-bulling.com/",
-          text: "Alternative von mir",
+          text: "Alternative von mir.",
         },
       ],
     },
@@ -130,14 +130,14 @@ export const printCard: LinkCard = {
     },
     {
       href: "https://portal.uni-ulm.de/eKladdeNG/index.html",
-      text: "Abschlussarbeiten drucken",
+      text: "Abschlussarbeiten drucken.",
       shortLink: true,
       description:
-        "Das Drucken von Dissertationen verläuft etwas anders. Einfache Abholung in der Bib-Ausleihe. (sehr Preisgünstig)",
+        "Das Drucken von Dissertationen verläuft etwas anders. Einfache Abholung in der Bib-Ausleihe (sehr preisgünstig).",
       descriptionLinks: [
         {
           href: "https://www.uni-ulm.de/einrichtungen/kiz/service-katalog/medien/druck-weiterverarbeitung/abschlussarbeiten/",
-          text: "Mehr Informationen",
+          text: "Mehr Informationen.",
         },
       ],
     },
@@ -165,12 +165,12 @@ export const studisekCard: LinkCard = {
     },
     {
       href: "https://www.uni-ulm.de/studium/studienorganisation/studiengebuehren/",
-      text: "Informationen zu den Studiengebüren",
+      text: "Informationen zu den Studiengebüren.",
       shortLink: true,
     },
     {
       href: "https://www.uni-ulm.de/studium/studienorganisation/studierendenausweis-chipkarte/",
-      text: "Chipkarte verloren",
+      text: "Chipkarte verloren.",
       shortLink: true,
     },
   ],
@@ -178,7 +178,7 @@ export const studisekCard: LinkCard = {
 
 export const freetimeCard: LinkCard = {
   heading: "Freizeit",
-  description: "Was man in der schönen Stadt Ulm so alles machen kann",
+  description: "Was man in Ulm, um Ulm und um Ulm herum so alles machen kann.",
   links: [
     {
       href: "https://cloud.aktivkonzepte.de/hspulm/index.html#%23/Home/KursListe",
@@ -187,7 +187,7 @@ export const freetimeCard: LinkCard = {
       descriptionLinks: [
         {
           href: "https://www.uni-ulm.de/einrichtungen/hochschulsport/",
-          text: "Mehr Informationen",
+          text: "Mehr Informationen.",
         },
       ],
     },
@@ -197,7 +197,7 @@ export const freetimeCard: LinkCard = {
     },
     {
       href: "https://www.uni-ulm.de/einrichtungen/hochschulsport/unifit/information/",
-      text: "UniFIT",
+      text: "UniFit",
     },
     {
       href: "https://www.ulm.de/leben-in-ulm/freizeit-und-sport",
@@ -208,7 +208,7 @@ export const freetimeCard: LinkCard = {
 
 export const bibCard: LinkCard = {
   heading: "Bibliothek",
-  description: "Bücher ausleihen muss nicht kompliziert sein!",
+  description: "Bücher ausleihen muss nicht kompliziert sein! (ist es aber manchmal)",
   links: [
     {
       href: "https://ulm.ibs-bw.de/",
@@ -218,7 +218,7 @@ export const bibCard: LinkCard = {
       descriptionLinks: [
         {
           href: "https://www.uni-ulm.de/einrichtungen/kiz/service-katalog/bibliotheksnutzung/",
-          text: "Mehr Informationen",
+          text: "Mehr Informationen.",
         },
       ],
     },
@@ -298,11 +298,11 @@ export const internationalOfficeCard: LinkCard = {
 
 export const stuveCard: LinkCard = {
   heading: "StuVe",
-  description: "Studentische Vertretung der Uni Ulm",
+  description: "Studierendenvertretung der Universität Ulm.",
   links: [
     {
       href: "https://stuve.uni-ulm.de/aktuelles",
-      text: "Aktuelles von der StuVe",
+      text: "Aktuelles von der StuVe.",
       shortLink: true,
     },
     {
