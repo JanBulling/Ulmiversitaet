@@ -350,7 +350,6 @@ export const stuveCard: LinkCard = {
 
 export const jobCard: LinkCard = {
   heading: "Jobs",
-  description: "Die Uni Ulm als Arbeitgeber!",
   links: [
     {
       href: "https://www.informatik.uni-ulm.de/hiwiboerse/",
@@ -384,7 +383,7 @@ export const jobCard: LinkCard = {
     },
     {
       href: "https://www.uni-ulm.de/einrichtungen/zuv/dezernat-3/stellenportal/stellenangebote/",
-      text: "Sonstige",
+      text: "Sonstiges",
       shortLink: true,
     },
     
