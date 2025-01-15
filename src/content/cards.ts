@@ -8,7 +8,7 @@ export const accountCard: LinkCard = {
       href: "https://portal.uni-ulm.de/PortalWI/index.html",
       text: "kiz Web-Services",
       shortLink: true,
-    },    
+    },
     {
       href: "https://portal.uni-ulm.de/idmFrontend/",
       text: "Identitätsmanagement",
@@ -39,7 +39,8 @@ export const accountCard: LinkCard = {
     {
       href: "https://uulm.sona-systems.com/",
       text: "SONA",
-      description: "Verwaltung psychologischer Experimente und Management der Versuchspersonenstunden.",
+      description:
+        "Verwaltung psychologischer Experimente und Management der Versuchspersonenstunden.",
       descriptionLinks: [
         {
           href: "https://uulm.sona-systems.com/lost_password.aspx",
@@ -47,7 +48,6 @@ export const accountCard: LinkCard = {
         },
       ],
     },
-    
   ],
 };
 
@@ -323,8 +323,9 @@ export const stuveCard: LinkCard = {
       shortLink: true,
     },
     {
-      href: "https://www.ulmiversitaet.de/uni-politik",
+      href: "/uni-politik",
       text: "Uni-Politik",
+      internalLink: true,
       description: "Informationen zur Hochschulpolitik an der Universität Ulm.",
     },
 
@@ -336,13 +337,13 @@ export const stuveCard: LinkCard = {
     {
       href: "https://wiki.stuve.uni-ulm.de/de/home",
       text: "StuVe-Wiki",
-       description: "Der Blick hinter die Kulissen.",
+      description: "Der Blick hinter die Kulissen.",
       shortLink: true,
     },
     {
       href: "https://pad.stuve.uni-ulm.de/",
       text: "StuVe-Pad",
-       description: "Wird beispielsweise für Sitzungsprotokolle verwendet.",
+      description: "Wird beispielsweise für Sitzungsprotokolle verwendet.",
       shortLink: true,
     },
     {
@@ -359,14 +360,14 @@ export const jobCard: LinkCard = {
     {
       href: "https://www.informatik.uni-ulm.de/hiwiboerse/",
       text: "Convenda",
-       description: "HiWi-Börse der Uni Ulm.",
+      description: "HiWi-Börse der Uni Ulm.",
       shortLink: true,
     },
     {
       href: "https://stuve.uni-ulm.de/aktuelles/mitarbeit-jobs",
       text: "StuVe-Jobs",
-      
-       shortLink: true,
+
+      shortLink: true,
     },
     {
       href: "https://uni-ulm.jobteaser.com/de",
@@ -374,7 +375,7 @@ export const jobCard: LinkCard = {
       shortLink: true,
     },
 
-        {
+    {
       href: "https://studierendenwerk-ulm.de/studierendenwerk/stellenangebote/",
       text: "Studierendenwerk",
       description: "Bitte sorgt mir eurer Bewerbung für mehr Mensapersonal.",
@@ -383,7 +384,8 @@ export const jobCard: LinkCard = {
     {
       href: "https://www.uni-ulm.de/universitaet/karriere/career-service/fuer-studierende/stellenboerse/",
       text: "Abschlussarbeiten",
-      description: "Ihr verdient zwar nicht (viel), aber arbeiten muss man trotzdem.",
+      description:
+        "Ihr verdient zwar nicht (viel), aber arbeiten muss man trotzdem.",
       shortLink: true,
     },
     {
@@ -391,11 +393,8 @@ export const jobCard: LinkCard = {
       text: "Sonstiges",
       shortLink: true,
     },
-    
   ],
 };
-
-
 
 export const cards: LinkCard[] = [
   accountCard,

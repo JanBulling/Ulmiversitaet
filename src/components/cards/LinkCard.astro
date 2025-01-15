@@ -38,10 +38,12 @@ const { content } = Astro.props;
               {link.text}
             </Link>
           ) : (
-            <Link href={link.href} external>
-              <Button variant='secondary'>
+            <Link href={link.href} external={!link.internalLink}>
+              <Button variant={link.internalLink ? "accent" : "secondary"}>
                 {link.text}{" "}
-                <ExternalLink class='w-4 h-4 hidden md:inline-block' />
+                {!link.internalLink && (
+                  <ExternalLink class='w-4 h-4 hidden md:inline-block' />
+                )}
               </Button>
             </Link>
           )}

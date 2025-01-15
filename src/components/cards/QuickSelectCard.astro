@@ -29,10 +29,10 @@ const { quickSelect } = Astro.props;
           />
         )
       }
-      <div>
-        <h3 class='font-semibold md:text-xl'>{quickSelect.name}</h3>
+      <div class='flex-1 overflow-hidden'>
+        <h3 class='font-semibold md:text-xl truncate'>{quickSelect.name}</h3>
 
-        <p class='hidden md:inline-block line-clamp-1 w-full'>
+        <p class='hidden md:block truncate'>
           {quickSelect.description}
         </p>
       </div>
