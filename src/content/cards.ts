@@ -5,6 +5,11 @@ export const accountCard: LinkCard = {
   description: "Account-Management der Uni Ulm",
   links: [
     {
+      href: "https://portal.uni-ulm.de/PortalWI/index.html",
+      text: "kiz Web-Services",
+      shortLink: true,
+    }    
+    {
       href: "https://portal.uni-ulm.de/idmFrontend/",
       text: "Identitätsmanagement",
       description: "Zentrale Verwaltung von Personendaten und der Chipkarte.",
