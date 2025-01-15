@@ -8,7 +8,7 @@ export const accountCard: LinkCard = {
       href: "https://portal.uni-ulm.de/PortalWI/index.html",
       text: "kiz Web-Services",
       shortLink: true,
-    }    
+    },    
     {
       href: "https://portal.uni-ulm.de/idmFrontend/",
       text: "Identitätsmanagement",
