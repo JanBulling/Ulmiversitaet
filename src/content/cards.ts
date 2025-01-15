@@ -388,7 +388,7 @@ export const jobCard: LinkCard = {
     },
     {
       href: "https://www.uni-ulm.de/einrichtungen/zuv/dezernat-3/stellenportal/stellenangebote/",
-      text: "Sonstiges",
+      text: "Sonstiges Test",
       shortLink: true,
     },
     
