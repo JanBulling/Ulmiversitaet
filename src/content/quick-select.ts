@@ -46,7 +46,7 @@ export const quickSelect = [
   {
     name: "SONA",
     href: "https://uulm.sona-systems.com",
-    description: "Versuchsverwaltung Psychologie",
+    description: "Versuchsverwaltung",
     image: "/img/sona.png",
   },
 ];
