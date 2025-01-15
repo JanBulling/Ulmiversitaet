@@ -88,7 +88,7 @@ export const studienwerkCard: LinkCard = {
     {
       href: "https://studierendenwerk-ulm.de/bafoeg-finanzen/faq/",
       text: "BAföG",
-      description: "Direkt",
+      description: "Lohnt sich fast immer!",
       descriptionLinks: [
         {
           href: "https://www.bafoeg-digital.de/",
@@ -100,7 +100,7 @@ export const studienwerkCard: LinkCard = {
       href: "https://studierendenwerk-ulm.de/wohnen/",
       text: "Wohnen",
       shortLink: true,
-      description: "Studieredenwohnung in Ulm beantragen.",
+      description: "Wohnheimsplätze in Ulm.",
       descriptionLinks: [
         {
           href: "https://tl1host.eu/SWUL/#admission",
@@ -161,7 +161,7 @@ export const studisekCard: LinkCard = {
   links: [
     {
       href: "mailto:studiensekretariat@uni-ulm.de",
-      text: "studiensekretariat(at)uni-ulm.de",
+      text: "studiensekretariat@uni-ulm.de",
       shortLink: true,
     },
     {
@@ -220,7 +220,7 @@ export const freetimeCard: LinkCard = {
 
 export const bibCard: LinkCard = {
   heading: "Bibliothek",
-  description: "Bücher ausleihen muss nicht kompliziert sein! (ist es aber manchmal)",
+  description: "Bücher ausleihen muss nicht kompliziert sein!",
   links: [
     {
       href: "https://ulm.ibs-bw.de/",
@@ -331,11 +331,13 @@ export const stuveCard: LinkCard = {
     {
       href: "https://wiki.stuve.uni-ulm.de/de/home",
       text: "StuVe-Wiki",
+       description: "Der Blick hinter die Kulissen.",
       shortLink: true,
     },
     {
       href: "https://pad.stuve.uni-ulm.de/",
       text: "StuVe-Pad",
+       description: "Wird beispielsweise für Sitzungsprotokolle verwendet.",
       shortLink: true,
     },
     {
@@ -353,11 +355,13 @@ export const jobCard: LinkCard = {
     {
       href: "https://www.informatik.uni-ulm.de/hiwiboerse/",
       text: "Convenda",
+       description: "HiWi-Börse der Uni Ulm.",
       shortLink: true,
     },
     {
       href: "https://stuve.uni-ulm.de/aktuelles/mitarbeit-jobs",
       text: "StuVe-Jobs",
+      
        shortLink: true,
     },
     {
@@ -365,9 +369,17 @@ export const jobCard: LinkCard = {
       text: "Career-Center",
       shortLink: true,
     },
+
+        {
+      href: "https://studierendenwerk-ulm.de/studierendenwerk/stellenangebote/",
+      text: "Studierendenwerk",
+      description: "Bitte sorgt mir eurer Bewerbung für mehr Mensapersonal.",
+      shortLink: true,
+    },
     {
       href: "https://www.uni-ulm.de/universitaet/karriere/career-service/fuer-studierende/stellenboerse/",
       text: "Abschlussarbeiten",
+      description: "Ihr verdient zwar nicht (viel), aber arbeiten muss man trotzdem.",
       shortLink: true,
     },
     {
@@ -375,6 +387,7 @@ export const jobCard: LinkCard = {
       text: "Sonstige",
       shortLink: true,
     },
+    
   ],
 };
 
