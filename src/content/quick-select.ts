@@ -43,6 +43,12 @@ export const quickSelect = [
     description: "Drucken im Uninetz",
     image: "/img/print-logo.png",
   },
+  {
+    name: "SONA",
+    href: "https://uulm.sona-systems.com",
+    description: "Versuchsverwaltung Psychologie",
+    image: "/img/sona.png",
+  },
 ];
 
 export type QuickSelect = (typeof quickSelect)[number];
