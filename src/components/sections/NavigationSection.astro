@@ -39,10 +39,12 @@ import { ExternalLink } from "lucide-astro";
 
   <Card className='w-full mt-4 border-y md:border border-x-0'>
     <CardContent className='p-0 flex flex-col md:flex-row'>
-      <img
-        src='/img/uni-map.png'
-        class='w-full max-h-48 md:max-h-none object-cover md:w-1/3 md:max-w-md dark:invert border-r border-border'
-      />
+      <Link href='/navigation'>
+        <img
+          src='/img/uni-map.png'
+          class='w-full h-full object-cover md:w md:max-w-md dark:invert border-r border-border'
+        />
+      </Link>
       <div class='flex-1 px-4 py-6'>
         <h3 class='font-semibold text-xl'>Angebote der Universität</h3>
         <div class='space-y-4 mt-2'>
