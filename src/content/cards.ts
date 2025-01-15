@@ -17,7 +17,7 @@ export const accountCard: LinkCard = {
     },
     {
       href: "https://www.uni-ulm.de/in/sgi/services/account-system/account-erstellen/",
-      text: "SGI Account",
+      text: "SGI-Account",
       description: "Zugang zu PCs der SG Informatik.",
       descriptionLinks: [
         {
@@ -28,9 +28,21 @@ export const accountCard: LinkCard = {
     },
     {
       href: "https://imap.uni-ulm.de/lists",
-      text: "Mailing Listen",
+      text: "Mailing-Listen",
       description: "Ein- / Austragen aus Mailinglisten.",
     },
+    {
+      href: "https://uulm.sona-systems.com/",
+      text: "SONA",
+      description: "Verwaltung psychologischer Experimente und Management der Versuchspersonenstunden.",
+      descriptionLinks: [
+        {
+          href: "https://uulm.sona-systems.com/lost_password.aspx",
+          text: "Passwort zurücksetzen.",
+        },
+      ],
+    },
+    
   ],
 };
 
