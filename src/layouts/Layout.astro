@@ -39,6 +39,10 @@ const siteDescription = description ? description : siteConfig.description;
       crossorigin
     />
 
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/public/apple-touch-icon.png">
+
+
     <!-- Canonical URL -->
     <!-- <link rel='canonical' href={canonicalURL} /> -->
 
@@ -65,6 +69,11 @@ const siteDescription = description ? description : siteConfig.description;
       property='twitter:image'
       content={new URL(siteConfig.ogImage, Astro.url)}
     />
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Ulmiversität"> 
+
   </head>
   <body class='min-h-svh font-sans antialiased pt-8 md:pt-16'>
     <Header />
