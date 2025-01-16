@@ -40,8 +40,13 @@ const siteDescription = description ? description : siteConfig.description;
     />
 
     <link rel="manifest" href="/manifest.json">
-    <link rel="apple-touch-icon" href="/public/apple-touch-icon.png">
 
+    <!-- Light Mode Icon -->
+    <link rel="apple-touch-icon" href="/public/apple-touch-icon-light.png" media="(prefers-color-scheme: light)">
+
+    <!-- Dark Mode Icon -->
+    <link rel="apple-touch-icon" href="/public/apple-touch-icon-dark.png" media="(prefers-color-scheme: dark)">
+ 
 
     <!-- Canonical URL -->
     <!-- <link rel='canonical' href={canonicalURL} /> -->
