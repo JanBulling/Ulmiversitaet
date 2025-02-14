@@ -1,4 +1,18 @@
 export const announcements: Announcement[] = [
+
+    {
+    title: "Viva La PhyMa Kick-Off am 27.02.!",
+    description: "weitere Infos folgen...",
+    link: {
+      href: "https://wiki.stuve.uni-ulm.de/de/events/partys/vivalawima",
+      text: "StuVe-Wiki",
+    },
+  },
+    {
+    title: "Hörsaal verschwunden",
+    description:
+      "Hat irgendjemand schon mal den Hörsaal H6 gefunden?",
+  },
   {
     title: "Ulmiversität auf Instagram!",
     description: "Folge uns hier auf Insta!",
@@ -12,11 +26,7 @@ export const announcements: Announcement[] = [
     description:
       "Ab dem 16. Januar 2025 ist Jan leider nicht mehr in Ulm. Aber keine Sorge: Er kommt wieder zurück!",
   },
-  {
-    title: "Weihnachtsvorlesung",
-    description:
-      "Am 19.12.2024 findet dieses Jahr die Weihnachtsvorlesung in H4/5 um 16:00Uhr statt!",
-  },
+
 ];
 
 export type Announcement = {
