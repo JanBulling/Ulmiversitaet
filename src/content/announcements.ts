@@ -2,11 +2,7 @@ export const announcements: Announcement[] = [
 
     {
     title: "Viva La PhyMa Kick-Off am 27.02.!",
-    description: "weitere Infos folgen...",
-    link: {
-      href: "https://wiki.stuve.uni-ulm.de/de/events/partys/vivalawima",
-      text: "StuVe-Wiki",
-    },
+    description: "Hilf mit bei der besten Uniparty des Jahres. Treffen in H7, 18 Uhr (c.t.)",
   },
     {
     title: "Hörsaal verschwunden",
