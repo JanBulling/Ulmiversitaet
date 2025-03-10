@@ -1,21 +1,13 @@
 export const announcements: Announcement[] = [
-
-    {
-    title: "Viva La PhyMa Kick-Off am 27.02.!",
-    description: "Hilf mit bei der besten Uniparty des Jahres. Treffen in H7, 18 Uhr (c.t.)",
+        {
+    title: "Semesterferien",
+    description:
+      "Wir wünschen euch allen eine schöne vorlesungsfreie Zeit!",
   },
     {
     title: "Hörsaal verschwunden",
     description:
       "Hat irgendjemand schon mal den Hörsaal H6 gefunden?",
-  },
-  {
-    title: "Ulmiversität auf Instagram!",
-    description: "Folge uns hier auf Insta!",
-    link: {
-      href: "https://instagram.com/ulmiversitaet",
-      text: "Instagram",
-    },
   },
   {
     title: "Jan ist in Uppsala",
