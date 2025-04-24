@@ -1,13 +1,13 @@
 export const announcements: Announcement[] = [
         {
-    title: "Semesterferien",
+    title: "Sommersemester!",
     description:
-      "Wir wünschen euch allen eine schöne vorlesungsfreie Zeit!",
+      "Wir wünschen euch viel Spaß und Lernerfolg im Sommersemester",
   },
     {
-    title: "Hörsaal verschwunden",
+    title: "Viva La PhyMa",
     description:
-      "Hat irgendjemand schon mal den Hörsaal H6 gefunden?",
+      "Am 05.06. findet die beste Uniparty des Jahres im Forum statt! Der Vorverkauf startet am 22.05. um 12 Uhr.",
   },
   {
     title: "Jan ist in Uppsala",
