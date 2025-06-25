@@ -1,6 +1,6 @@
 export const announcements: Announcement[] = [
   {
-    title: "Jan ist in wieder da!",
+    title: "Jan ist wieder da!",
     description:
       "Jan ist aus Uppsala zurückgekehrt und wieder in Ulm!",
   },
