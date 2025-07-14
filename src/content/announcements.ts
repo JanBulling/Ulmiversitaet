@@ -1,18 +1,22 @@
 export const announcements: Announcement[] = [
+  
+  {
+    title: "ÖPNV-Echtzeitdaten!",
+    description: "Die Ulmiversität hat nun Echtzeitdaten für den ÖPNV integriert. Die Abfahrtenanzeige zeigt jetzt die nächsten 3 Abfahrten in Echtzeit an.",
+  },
+
+  
+
+    {
+    title: "Klausurenphase!",
+    description:
+      "Wir wünschen euch viel Erfolg in der Klausurenphase!",
+  },
   {
     title: "Jan ist wieder da!",
     description:
       "Jan ist aus Uppsala zurückgekehrt und wieder in Ulm!",
   },
-
-
-        
-        {
-    title: "Sommersemester!",
-    description:
-      "Wir wünschen euch viel Spaß und Lernerfolg im Sommersemester",
-  },
-
 
 
 ];

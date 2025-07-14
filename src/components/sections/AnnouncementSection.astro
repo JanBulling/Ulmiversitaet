@@ -1,10 +1,10 @@
 ---
 import { announcements } from "@/content/announcements";
 import Link from "@/ui/Link.astro";
+import FixedDeparturesDisplay from "../FixedDeparturesDisplay.tsx"; // Ensure this path is correct relative to this file
 ---
 
 <section class='relative px-2 md:px-8 py-8 mt-16 overflow-hidden'>
-  <!-- Background -->
   <div
     class='absolute inset-0 -z-10 h-full w-full bg-card'
     style='background-image: url(/img/bg-image.jpg); background-size: cover; background-position: center;'
@@ -20,27 +20,48 @@ import Link from "@/ui/Link.astro";
   >
   </div>
 
-  <!-- Content -->
-  <div class='max-w-screen-2xl mx-auto px-2'>
-    <h2
-      class='w-max text-xl md:text-3xl font-semibold bg-primary text-primary-foreground py-1 px-2'
-    >
-      Ankündigungen
-    </h2>
-    <div class='space-y-2 mt-8'>
-      {
-        announcements.map((ann) => (
-          <div class='bg-primary text-primary-foreground px-2 py-1 w-fit'>
-            <h3 class='font-semibold'>{ann.title}</h3>
-            <p>{ann.description}</p>
-            {ann.link && (
-              <Link href={ann.link.href} external variant='underline'>
-                {ann.link.text}
-              </Link>
-            )}
-          </div>
-        ))
-      }
+  <div class='max-w-screen-2xl mx-auto px-2 flex flex-col md:flex-row gap-8 items-start'>
+
+    {/* Announcements Column (left side) */}
+    {/* Changed width from md:w-1/2 to md:w-1/3 */}
+    <div class="w-full md:w-1/3 flex-shrink-0">
+      <h2
+        class='w-max text-xl md:text-3xl font-semibold bg-primary text-primary-foreground py-1 px-2'
+      >
+        Ankündigungen
+      </h2>
+      <div class='space-y-2 mt-8'>
+        {
+          announcements.map((ann) => (
+            <div class='bg-primary text-primary-foreground px-2 py-1 w-fit'>
+              <h3 class='font-semibold'>{ann.title}</h3>
+              <p>{ann.description}</p>
+              {ann.link && (
+                <Link href={ann.link.href} external variant='underline'>
+                  {ann.link.text}
+                </Link>
+              )}
+            </div>
+          ))
+        }
+      </div>
     </div>
+
+    {/* Departure Displays Column (right side) */}
+    {/* Changed width from md:w-1/2 to md:w-2/3 */}
+    <div class="w-full md:w-2/3 flex flex-col items-center gap-4">
+        <div class="flex flex-col md:flex-row items-stretch w-full gap-4">
+            <div class="w-full md:flex-1 p-2">
+                <FixedDeparturesDisplay client:load stopId="1240" stopName="Uni Süd" />
+            </div>
+            <div class="w-full md:flex-1 p-2">
+                <FixedDeparturesDisplay client:load stopId="1246" stopName="Uni West" />
+            </div>
+            <div class="w-full md:flex-1 p-2">
+                <FixedDeparturesDisplay client:load stopId="1241" stopName="Bot. Garten" />
+            </div>
+        </div>
+    </div>
+
   </div>
 </section>
