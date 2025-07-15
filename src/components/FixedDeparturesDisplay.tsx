@@ -1,6 +1,6 @@
 // src/components/FixedDeparturesDisplay.tsx
 import React, { useEffect, useState, useRef, useCallback } from 'react';
-import { fetchDeparturesData } from '../services/swuService';
+import { fetchDeparturesData } from '../services/swuService'; // Ensure this path is correct
 
 // Utility function for loading route icons
 const loadRouteIcon = (routeNumber: string, callback: (url: string | null) => void) => {
@@ -31,16 +31,30 @@ interface Departure {
   DepartureDeviation: number;
 }
 
+// Define interface for a stop option
+interface StopOption {
+  id: string;
+  name: string;
+}
+
 // Define props interface for the component
 interface FixedDeparturesDisplayProps {
-  stopId: string;
-  stopName: string; // Add stopName as a prop for dynamic titles
+  allStops: StopOption[]; // New prop: list of all available stops
+  initialStopId?: string; // New prop: the initially selected stop ID for this instance
 }
 
 // Define the refresh duration (15 minutes in milliseconds)
 const MAX_REFRESH_DURATION = 15 * 60 * 1000; // 15 minutes, as per original intent
 
-const FixedDeparturesDisplay: React.FC<FixedDeparturesDisplayProps> = ({ stopId, stopName }) => {
+const FixedDeparturesDisplay: React.FC<FixedDeparturesDisplayProps> = ({ allStops, initialStopId }) => {
+  // State for the currently selected stop ID for THIS display
+  const [selectedStopId, setSelectedStopId] = useState<string>(
+    initialStopId || (allStops.length > 0 ? allStops[0].id : '')
+  );
+
+  // Derive the selected stop name based on selectedStopId
+  const selectedStopName = allStops.find(stop => stop.id === selectedStopId)?.name || 'Select Stop';
+
   const [departures, setDepartures] = useState<Departure[]>([]);
   const [routeIcons, setRouteIcons] = useState<{ [key: string]: string }>({});
   const [isLoading, setIsLoading] = useState(true);
@@ -61,10 +75,18 @@ const FixedDeparturesDisplay: React.FC<FixedDeparturesDisplayProps> = ({ stopId,
   const truncateDirectionText = componentWidth <= TEXT_TRUNCATE_BREAKPOINT;
 
   // Function to fetch departures
+  // Now takes selectedStopId from state
   const getDepartures = useCallback(async (initialLoad: boolean = false) => {
+    if (!selectedStopId) {
+      setError("No stop selected.");
+      setIsLoading(false);
+      setDepartures([]);
+      return;
+    }
+
     // Only attempt to fetch if the refresh timer hasn't expired
     if (!initialLoad && refreshTimerExpired) {
-      console.log('Refresh limit reached, not fetching new departures.');
+      console.log(`Refresh limit reached for stop ${selectedStopId}, not fetching new departures.`);
       return;
     }
 
@@ -74,11 +96,11 @@ const FixedDeparturesDisplay: React.FC<FixedDeparturesDisplayProps> = ({ stopId,
     }
 
     try {
-      const fetchedDepartures = await fetchDeparturesData(stopId);
+      const fetchedDepartures = await fetchDeparturesData(selectedStopId); // Use selectedStopId
       setDepartures(fetchedDepartures);
       setError(null);
     } catch (err) {
-      console.error(`Error fetching departures for stop ${stopId}:`, err);
+      console.error(`Error fetching departures for stop ${selectedStopId}:`, err);
       if (departures.length === 0 || initialLoad) {
         setError("Failed to load departure data.");
       }
@@ -87,38 +109,50 @@ const FixedDeparturesDisplay: React.FC<FixedDeparturesDisplayProps> = ({ stopId,
         setIsLoading(false);
       }
     }
-  }, [stopId, refreshTimerExpired, departures.length]); // Added departures.length to dependencies
+  }, [selectedStopId, refreshTimerExpired, departures.length]); // Added selectedStopId to dependencies
 
   // Effect for initial fetch and setting up data refresh interval
   useEffect(() => {
-    getDepartures(true); // Initial fetch
+    // Clear existing intervals/timeouts on stopId change or unmount
+    if (refreshIntervalIdRef.current) {
+      clearInterval(refreshIntervalIdRef.current);
+      refreshIntervalIdRef.current = null;
+    }
+    if (refreshTimeoutIdRef.current) {
+      clearTimeout(refreshTimeoutIdRef.current);
+      refreshTimeoutIdRef.current = null;
+    }
 
-    // Store interval ID in ref
-    refreshIntervalIdRef.current = setInterval(() => {
-      // Only refresh if the timer has not expired
-      if (!refreshTimerExpired) {
-        getDepartures(false);
-      } else {
-        // If expired, clear the interval immediately if not already cleared
+    // Reset refresh timer expired state when stopId changes
+    setRefreshTimerExpired(false);
+
+    // Only fetch if a stop is selected
+    if (selectedStopId) {
+      getDepartures(true); // Initial fetch for the newly selected stop
+
+      refreshIntervalIdRef.current = setInterval(() => {
+        if (!refreshTimerExpired) { // Check state before fetching
+          getDepartures(false);
+        }
+      }, 15000); // Refresh every 15 seconds
+
+      refreshTimeoutIdRef.current = setTimeout(() => {
+        setRefreshTimerExpired(true);
+        console.log(`15-minute refresh limit reached for stop ${selectedStopId}. Automatic refreshing stopped.`);
         if (refreshIntervalIdRef.current) {
           clearInterval(refreshIntervalIdRef.current);
           refreshIntervalIdRef.current = null;
         }
-      }
-    }, 15000); // Refresh every 15 seconds
+      }, MAX_REFRESH_DURATION);
+    } else {
+      // If no stop is selected, ensure no data is shown and loading is off
+      setDepartures([]);
+      setIsLoading(false);
+      setError("No stop selected.");
+    }
 
-    // Set up the 15-minute timeout for max refresh duration
-    refreshTimeoutIdRef.current = setTimeout(() => {
-      setRefreshTimerExpired(true);
-      console.log('15-minute refresh limit reached. Automatic refreshing stopped.');
-      // Clear the data refresh interval when timeout is reached
-      if (refreshIntervalIdRef.current) {
-        clearInterval(refreshIntervalIdRef.current);
-        refreshIntervalIdRef.current = null;
-      }
-    }, MAX_REFRESH_DURATION);
 
-    // Cleanup function: clear both data refresh interval and max refresh timeout on unmount
+    // Cleanup function: clear both data refresh interval and max refresh timeout on unmount or stopId change
     return () => {
       if (refreshIntervalIdRef.current) {
         clearInterval(refreshIntervalIdRef.current);
@@ -129,7 +163,7 @@ const FixedDeparturesDisplay: React.FC<FixedDeparturesDisplayProps> = ({ stopId,
         refreshTimeoutIdRef.current = null;
       }
     };
-  }, [stopId, refreshTimerExpired, getDepartures]); // Added getDepartures to dependencies
+  }, [selectedStopId, refreshTimerExpired, getDepartures]); // Added selectedStopId to dependencies
 
   // Effect for updating current time for countdown
   useEffect(() => {
@@ -213,105 +247,139 @@ const FixedDeparturesDisplay: React.FC<FixedDeparturesDisplayProps> = ({ stopId,
   return (
     <div ref={componentRef} className="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-4 relative flex-shrink-0">
       <h2 className="text-xl font-bold mb-3 border-b pb-2 text-gray-900 dark:text-white flex items-center justify-between">
-        <span>{stopName}</span>
-        {!isLoading && !refreshTimerExpired ? ( // Show live indicator if not loading and timer not expired
+        {/* Dropdown for stop selection */}
+        <div className="relative inline-flex items-center group"> {/* Added group for hover effects */}
+          <select
+            value={selectedStopId}
+            onChange={(e) => setSelectedStopId(e.target.value)}
+            className="bg-transparent text-xl font-bold appearance-none cursor-pointer border-none focus:outline-none focus:ring-0 pr-8 py-1 rounded-md transition-colors duration-200
+                       dark:text-white text-gray-900
+                       hover:bg-gray-100 dark:hover:bg-gray-700
+                       focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800" // Added padding, rounded corners, hover, and focus styles
+            style={{ color: 'inherit', width: 'auto' }}
+          >
+            {allStops.map((stop) => (
+              <option key={stop.id} value={stop.id}>
+                {stop.name}
+              </option>
+            ))}
+          </select>
+          {/* Custom dropdown arrow positioned absolutely */}
+          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+            <svg className="h-5 w-5 text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-200"
+                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 de 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+            </svg>
+          </div>
+        </div>
+
+        {!isLoading && !refreshTimerExpired && selectedStopId ? ( // Show live indicator if not loading, timer not expired, and stop selected
           <span
-            className="w-3 h-3 bg-gray-400 rounded-full animate-pulse flex-shrink-0" // Added flex-shrink-0
-            title="Live data refreshing"
+            className="w-3 h-3 bg-gray-400 rounded-full animate-pulse flex-shrink-0 ml-2"
+            title="Live-Daten werden alle 15 Sekunden aktualisiert"
           ></span>
-        ) : !isLoading && refreshTimerExpired ? ( // Show message if not loading and timer expired
-          <span className="text-sm text-gray-500 dark:text-gray-400 flex-shrink-0" title="Automatic refresh stopped after 15 minutes">
+        ) : !isLoading && refreshTimerExpired && selectedStopId ? ( // Show message if not loading, timer expired, and stop selected
+          <span className="text-sm text-gray-600 dark:text-gray-300 flex-shrink-0 ml-2" title="Datenaktualisierung pausiert, da 15 Minuten seit der letzten Aktualisierung vergangen sind.">
             inaktiv
           </span>
-        ) : null // Don't show anything during initial loading
+        ) : null // Don't show anything during initial loading or if no stop selected
         }
       </h2>
 
-      {/* Initial loading message (only shown when no data is present yet) */}
-      {isLoading && departures.length === 0 && (
-        <div className="text-center text-gray-600 dark:text-gray-300">Lade Abfahrten...</div>
-      )}
+      {/* Conditional rendering based on selectedStopId */}
+      {!selectedStopId ? (
+        <div className="text-center text-gray-600 dark:text-gray-300">Please select a stop.</div>
+      ) : (
+        <>
+          {/* Initial loading message (only shown when no data is present yet) */}
+          {isLoading && departures.length === 0 && (
+            <div className="text-center text-gray-600 dark:text-gray-300">Lade Abfahrten...</div>
+          )}
 
-      {/* Error message (only shown if there's no data AND an error occurred) */}
-      {error && departures.length === 0 && (
-        <div className="bg-red-100 dark:bg-red-900 border border-red-400 dark:border-red-700 text-red-700 dark:text-red-300 px-4 py-3 rounded relative mb-3" role="alert">
-          <strong className="font-bold">Fehler: </strong>
-          <span className="block sm:inline">{error}</span>
-        </div>
-      )}
+          {/* Error message (only shown if there's no data AND an error occurred) */}
+          {error && departures.length === 0 && (
+            <div className="bg-red-100 dark:bg-red-900 border border-red-400 dark:border-700 text-red-700 dark:text-red-300 px-4 py-3 rounded relative mb-3" role="alert">
+              <strong className="font-bold">Fehler: </strong>
+              <span className="block sm:inline">{error}</span>
+            </div>
+          )}
 
-      {/* No departures message (only shown if not loading and no error, and no departures) */}
-      {!isLoading && !error && departures.length === 0 && (
-        <div className="text-gray-600 dark:text-gray-300">Keine bevorstehenden Abfahrten.</div>
-      )}
+          {/* No departures message (only shown if not loading and no error, and no departures) */}
+          {!isLoading && !error && departures.length === 0 && (
+            <div className="text-gray-600 dark:text-gray-300">Keine bevorstehenden Abfahrten.</div>
+          )}
 
-      {/* Main content: Always render if departures array has data, regardless of refreshing status */}
-      {departures.length > 0 && (
-        <ul className="space-y-2">
-          {departures.slice(0, 4).map((dep, i) => {
-            // Format the countdown based on actual departure time
-            const countdownText = formatCountdown(dep.DepartureTimeScheduled, dep.DepartureDeviation);
+          {/* Main content: Always render if departures array has data, regardless of refreshing status */}
+          {departures.length > 0 && (
+            // Removed pr-2 from ul. Added scrollbar-gutter to ul for better scrollbar handling.
+            <ul className="space-y-2 max-h-[220px] overflow-y-auto scrollbar-gutter">
+              {departures.slice(0, 10).map((dep, i) => {
+                // Format the countdown based on actual departure time
+                const countdownText = formatCountdown(dep.DepartureTimeScheduled, dep.DepartureDeviation);
 
-            const scheduledTimeFormatted = new Date(dep.DepartureTimeScheduled).toLocaleTimeString('de-DE', {
-              hour: '2-digit',
-              minute: '2-digit',
-            });
+                const scheduledTimeFormatted = new Date(dep.DepartureTimeScheduled).toLocaleTimeString('de-DE', {
+                  hour: '2-digit',
+                  minute: '2-digit',
+                });
 
-            const deviation = dep.DepartureDeviation || 0;
-            const absDeviation = Math.abs(deviation);
-            const delayMinutes = Math.floor(absDeviation / 60);
-            const delaySeconds = absDeviation % 60;
+                const deviation = dep.DepartureDeviation || 0;
+                const absDeviation = Math.abs(deviation);
+                const delayMinutes = Math.floor(absDeviation / 60);
+                const delaySeconds = absDeviation % 60;
 
-            let deviationText = '';
-            if (absDeviation > 30) { // Only show if deviation is larger than 30 seconds
-                if (absDeviation < 60) { // If less than 1 minute, only show seconds
-                    deviationText = deviation > 0 ? `(+${delaySeconds}s)` : `(-${delaySeconds}s)`;
+                let deviationText = '';
+                if (absDeviation > 30) { // Only show if deviation is larger than 30 seconds
+                    if (absDeviation < 60) { // If less than 1 minute, only show seconds
+                        deviationText = deviation > 0 ? `(+${delaySeconds}s)` : `(-${delaySeconds}s)`;
+                    } else {
+                        deviationText =
+                            deviation > 0
+                                ? `(+${delayMinutes}min ${delaySeconds}s)`
+                                : `(-${delayMinutes}min ${delaySeconds}s)`;
+                    }
                 } else {
-                    deviationText =
-                        deviation > 0
-                            ? `(+${delayMinutes}min ${delaySeconds}s)`
-                            : `(-${delayMinutes}min ${delaySeconds}s)`;
+                    deviationText = ''; // Show nothing if deviation is 30s or less
                 }
-            } else {
-                deviationText = ''; // Show nothing if deviation is 30s or less
-            }
 
-
-            return (
-              <li key={i} className="border-b dark:border-gray-700 pb-2 last:border-none">
-                <div className="flex items-center gap-2 text-sm">
-                  <img
-                    src={routeIcons[dep.RouteNumber] || '/icons/tram_logo.png'}
-                    alt={`Linie ${dep.RouteNumber}`}
-                    className="w-6 h-6 flex-shrink-0"
-                  />
-                  <div className="flex flex-col flex-grow min-w-0">
-                    <span
-                      className={`font-medium text-gray-900 dark:text-white ${truncateDirectionText ? 'truncate' : ''}`}
-                    >
-                      {dep.DepartureDirectionText}
-                    </span>
-                    {/* Display the scheduled time below the direction for clarity, now including conditional deviation */}
-                    <span className="text-gray-600 dark:text-gray-300 text-xs">
-                      {scheduledTimeFormatted} {deviationText}
-                    </span>
-                  </div>
-                  {showCountdown && ( // Show countdown if component width allows
-                    <span
-                      className={`font-semibold text-sm flex-shrink-0 ${
-                        countdownText === 'Abgefahren' || countdownText === 'Jetzt'
-                          ? 'text-gray-500 dark:text-gray-400' // Grey for past/current
-                          : 'text-gray-700 dark:text-gray-400' // Standard color for future countdown
-                      }`}
-                    >
-                      {countdownText}
-                    </span>
-                  )}
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+                return (
+                  // Added px-1 to li for internal padding.
+                  <li key={i} className="border-b dark:border-gray-700 pb-2 last:border-none">
+                    {/* Added pr-4 to this div to ensure space for the scrollbar */}
+                    <div className="flex items-center gap-2 text-sm pr-4">
+                      <img
+                        src={routeIcons[dep.RouteNumber] || '/icons/tram_logo.png'}
+                        alt={`Linie ${dep.RouteNumber}`}
+                        className="w-6 h-6 flex-shrink-0"
+                      />
+                      <div className="flex flex-col flex-grow min-w-0">
+                        <span
+                          className={`font-medium text-gray-900 dark:text-white ${truncateDirectionText ? 'truncate' : ''}`}
+                        >
+                          {dep.DepartureDirectionText}
+                        </span>
+                        {/* Display the scheduled time below the direction for clarity, now including conditional deviation */}
+                        <span className="text-gray-600 dark:text-gray-300 text-xs">
+                          {scheduledTimeFormatted} {deviationText}
+                        </span>
+                      </div>
+                      {showCountdown && ( // Show countdown if component width allows
+                        <span
+                          className={`font-semibold text-sm flex-shrink-0 ${
+                            countdownText === 'Abgefahren' || countdownText === 'Jetzt'
+                              ? 'text-gray-500 dark:text-gray-400' // Grey for past/current
+                              : 'text-gray-700 dark:text-gray-400' // Standard color for future countdown
+                          }`}
+                        >
+                          {countdownText}
+                        </span>
+                      )}
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </>
       )}
     </div>
   );

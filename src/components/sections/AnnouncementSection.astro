@@ -1,7 +1,19 @@
 ---
 import { announcements } from "@/content/announcements";
 import Link from "@/ui/Link.astro";
-import FixedDeparturesDisplay from "../FixedDeparturesDisplay.tsx"; // Ensure this path is correct relative to this file
+import FixedDeparturesDisplay from "../FixedDeparturesDisplay.tsx"; // Import FixedDeparturesDisplay directly
+
+// Define your list of available stops
+const allAvailableStops = [
+  { id: "1008", name: "Hauptbahnhof" }, // Example: Add more stops
+  { id: "1240", name: "Universität Süd" },
+  { id: "1241", name: "Botanischer Garten" },
+  { id: "1245", name: "Kliniken Wissenschaftsstadt" },
+  { id: "1246", name: "Universität West" },
+  { id: "1247", name: "Manfred-Börner Straße" },
+  { id: "1248", name: "Technische Hochschule" },
+
+];
 ---
 
 <section class='relative px-2 md:px-8 py-8 mt-16 overflow-hidden'>
@@ -22,9 +34,20 @@ import FixedDeparturesDisplay from "../FixedDeparturesDisplay.tsx"; // Ensure th
 
   <div class='max-w-screen-2xl mx-auto px-2 flex flex-col md:flex-row gap-8 items-start'>
 
-    {/* Announcements Column (left side) */}
-    {/* Changed width from md:w-1/2 to md:w-1/3 */}
-    <div class="w-full md:w-1/3 flex-shrink-0">
+    {/* Departure Displays Column - Now first in source, ordered second on desktop */}
+    <div class="w-full md:w-2/3 flex flex-col items-center gap-4 md:items-end md:pl-8 order-1 md:order-2">
+      {/* Render a single FixedDeparturesDisplay instance */}
+      <div class="w-full p-2 md:max-w-lg">
+        <FixedDeparturesDisplay
+          client:load
+          allStops={allAvailableStops}
+          initialStopId="1240"
+        />
+      </div>
+    </div>
+
+    {/* Announcements Column - Now second in source, ordered first on desktop */}
+    <div class="w-full md:w-1/3 flex-shrink-0 order-2 md:order-1">
       <h2
         class='w-max text-xl md:text-3xl font-semibold bg-primary text-primary-foreground py-1 px-2'
       >
@@ -45,22 +68,6 @@ import FixedDeparturesDisplay from "../FixedDeparturesDisplay.tsx"; // Ensure th
           ))
         }
       </div>
-    </div>
-
-    {/* Departure Displays Column (right side) */}
-    {/* Changed width from md:w-1/2 to md:w-2/3 */}
-    <div class="w-full md:w-2/3 flex flex-col items-center gap-4">
-        <div class="flex flex-col md:flex-row items-stretch w-full gap-4">
-            <div class="w-full md:flex-1 p-2">
-                <FixedDeparturesDisplay client:load stopId="1240" stopName="Universität Süd" />
-            </div>
-            <div class="w-full md:flex-1 p-2">
-                <FixedDeparturesDisplay client:load stopId="1246" stopName="Universität West" />
-            </div>
-            <div class="w-full md:flex-1 p-2">
-                <FixedDeparturesDisplay client:load stopId="1247" stopName="Manfred-Börner Straße" />
-            </div>
-        </div>
     </div>
 
   </div>
