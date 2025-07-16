@@ -1,7 +1,7 @@
 // src/hooks/useRouteIcons.ts
 import { useState, useEffect } from 'react';
-import { loadRouteIcon } from '../components/utils/iconLoader'; // Adjust the import path as necessary
-import type { Departure } from '../components/types'; // Assuming Departure type is defined in types
+import { loadRouteIcon } from '../utils/iconLoader'; // Adjust the import path as necessary
+import type { Departure } from '../types'; // Assuming Departure type is defined in types
 
 export const useRouteIcons = (departures: Departure[]) => {
   const [routeIcons, setRouteIcons] = useState<{ [key: string]: string }>({});

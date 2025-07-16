@@ -1,7 +1,7 @@
 // src/components/DepartureListItem.tsx
 import React from 'react';
-import type { Departure } from '../components/types'; // Assuming types are defined
-import { formatCountdown, getDeviationText } from '../components/utils/timeFormatters';
+import type { Departure } from '../departure/types'; // Assuming types are defined
+import { formatCountdown, getDeviationText } from '../departure/utils/timeFormatters';
 
 interface DepartureListItemProps {
   departure: Departure;

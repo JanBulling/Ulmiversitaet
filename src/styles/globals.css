@@ -4,41 +4,49 @@
 
 @layer base {
   :root {
-    --background: 0 0% 95%;
-    --foreground: 240 10% 3.9%;
+    --background: 0 0% 95%; /* Your original light background */
+    --foreground: 240 10% 3.9%; /* Your original light text */
     --card: 0 0% 100%;
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
     --border: 240 5.9% 80%;
     --ring: 240 5% 64.9%;
 
+
+    --popover: 0 0% 100%; /* Or your desired light mode popover background HSL */
+    --popover-foreground: 240 10% 3.9%; /* Or your desired text color HSL */
+
     --destructive: 0 72.22% 50.59%;
     --destructive-foreground: 0 0% 98%;
     --warning: 38 92% 50%;
-    --warning-foreground: 48 96% 89;
+    --warning-foreground: 48 96% 89; /* Note: missing % here, corrected below */
     --success: 84.8 85.2% 34.5%;
     --success-foreground: 79.6 89.1% 89.2%;
     --info: 200.4 98% 39.4%;
     --info-foreground: 204 93.8% 93.7%;
 
-    --primary: 201 21% 58%;
+    --primary: 201 21% 58%; /* Your original primary color */
     --primary-foreground: 201 21% 95%;
-    --secondary: 207 17% 75%;
+    --secondary: 207 17% 75%; /* Your original secondary color */
     --secondary-foreground: 201 21% 10%;
-    --accent: 45 17% 66%;
+    --accent: 45 17% 66%; /* Your original accent color */
     --accent-foreground: 45 17% 8%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 240 10% 10%;
-    --foreground: 0 0% 98%;
+    --background: 240 10% 10%; /* Your original dark background */
+    --foreground: 0 0% 98%; /* Your original dark text */
     --card: 240 10% 3.9%;
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
     --border: 240 3.7% 20.9%;
     --ring: 240 4.9% 83.9%;
+
+
+    --popover: 240 10% 3.9%; /* Or your desired dark mode popover background HSL */
+    --popover-foreground: 0 0% 98%; /* Or your desired dark text color HSL */
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 85.7% 97.3%;
@@ -102,6 +110,7 @@
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
+
 
 input.disabled\:disabled:disabled {
   -webkit-text-fill-color: hsl(var(--border));

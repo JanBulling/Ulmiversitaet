@@ -1,7 +1,7 @@
 // src/hooks/useDepartures.ts
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { fetchDeparturesData } from '../services/swuService';
-import type { Departure, StopOption } from '../components/types'; // Assuming types are defined
+import type { Departure, StopOption } from '../types'; // Assuming types are defined
 
 const MAX_REFRESH_DURATION = 15 * 60 * 1000; // 15 minutes
 

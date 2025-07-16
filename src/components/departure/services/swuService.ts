@@ -1,6 +1,6 @@
 // src/services/swuService.ts
 
-import type { Departure } from '../components/types';
+import type { Departure } from '../types';
 
 const SWU_DEPARTURES_API_BASE_URL =
   'https://api.swu.de/mobility/v1/stop/passage/Departures?Limit=8&StopNumber=';

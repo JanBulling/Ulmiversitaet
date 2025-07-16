@@ -1,17 +1,16 @@
 // src/components/FixedDeparturesDisplay.tsx
-// This should be the main component that displays fixed departures for a selected stop.
 import React, { useRef } from 'react';
-import type { SelectChangeEvent } from '@mui/material'; // Type-only import
+// import type { SelectChangeEvent } from '@mui/material'; // No longer needed
 
-import { useDepartures } from '../hooks/useDepartures';
-import { useRouteIcons } from '../hooks/useRouteIcons';
-import { useCurrentTime } from '../hooks/useCurrentTime';
-import { useComponentWidth } from '../hooks/useComponentWidth';
+import { useDepartures } from '../departure/hooks/useDepartures';
+import { useRouteIcons } from '../departure/hooks/useRouteIcons';
+import { useCurrentTime } from '../departure/hooks/useCurrentTime';
+import { useComponentWidth } from '../departure/hooks/useComponentWidth';
 
-import StopSelector from './StopSelector';
+import StopSelector from './StopSelector'; // Adjusted import path if StopSelector is now in components/
 import DepartureListItem from './DepartureListItem';
 
-import type { StopOption } from '../components/types'; // Assuming types are defined here
+import type { StopOption } from '../departure/types'; // Assuming types are defined here
 
 // Define props interface for the component
 interface FixedDeparturesDisplayProps {
@@ -42,8 +41,9 @@ const FixedDeparturesDisplay: React.FC<FixedDeparturesDisplayProps> = ({ allStop
   const showCountdown = componentWidth > COUNTDOWN_HIDE_BREAKPOINT;
   const truncateDirectionText = componentWidth <= TEXT_TRUNCATE_BREAKPOINT;
 
-  const handleStopChange = (event: SelectChangeEvent<string>) => {
-    setSelectedStopId(event.target.value as string);
+  // Updated handleStopChange to receive only the new stop ID string
+  const handleStopChange = (newStopId: string) => {
+    setSelectedStopId(newStopId);
   };
 
   return (
