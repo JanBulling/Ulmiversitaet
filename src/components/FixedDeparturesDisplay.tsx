@@ -1,4 +1,5 @@
 // src/components/FixedDeparturesDisplay.tsx
+// This should be the main component that displays fixed departures for a selected stop.
 import React, { useRef } from 'react';
 import type { SelectChangeEvent } from '@mui/material'; // Type-only import
 
