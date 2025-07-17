@@ -28,14 +28,14 @@ const allAvailableStops = [
   >
   </div>
   <div
-    class='absolute inset-0 -z-10 h-full w-full bg-gradient-to-r from-primary md:via-primary/90 to-transparent'
+    class='absolute inset-0 -z-10 h-full w-full bg-gradient-to-r from-primary md:via-primary/50 to-transparent'
   >
   </div>
 
-  <div class='max-w-screen-2xl mx-auto px-2 flex flex-col md:flex-row gap-8 items-start'>
+  <div class='max-w-screen-xl mx-auto px-2 flex flex-col md:flex-row gap-4 items-start'>
 
     {/* Departure Displays Column - Now first in source, ordered second on desktop */}
-    <div class="w-full md:w-2/3 flex flex-col items-center gap-4 md:items-end md:pl-8 order-1 md:order-2">
+    <div class="w-full md:w-3/4 flex flex-col items-center gap-4 md:items-end md:pl-8 order-1 md:order-2">
       {/* Render a single FixedDeparturesDisplay instance */}
       <div class="w-full p-2 md:max-w-lg">
         <FixedDeparturesDisplay

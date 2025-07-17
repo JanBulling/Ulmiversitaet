@@ -13,7 +13,3 @@ export interface StopOption {
   id: string;   // Unique identifier for the stop (e.g., "stop123")
   name: string; // Display name of the stop (e.g., "Münsterplatz")
 }
-
-// You could also add other types here if your application grows,
-// like the shape of an API response, or specific prop types for a component
-// that are highly reusable.#

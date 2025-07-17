@@ -40,8 +40,7 @@ export const useDepartures = ({ initialStopId, allStops }: UseDeparturesOptions)
     }
 
     if (!initialLoad && refreshTimerExpired) {
-      console.log(`Refresh limit reached for stop ${selectedStopId}, not fetching new departures.`);
-      return;
+       return;
     }
 
     if (initialLoad) {
@@ -88,8 +87,7 @@ export const useDepartures = ({ initialStopId, allStops }: UseDeparturesOptions)
 
       refreshTimeoutIdRef.current = setTimeout(() => {
         setRefreshTimerExpired(true);
-        console.log(`15-minute refresh limit reached for stop ${selectedStopId}. Automatic refreshing stopped.`);
-        if (refreshIntervalIdRef.current) {
+         if (refreshIntervalIdRef.current) {
           clearInterval(refreshIntervalIdRef.current);
           refreshIntervalIdRef.current = null;
         }

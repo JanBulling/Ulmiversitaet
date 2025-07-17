@@ -67,14 +67,12 @@ function parseApiDateString(dateString: string | undefined): Date {
 }
 
 export async function fetchDeparturesData(stopNr: string): Promise<Departure[]> {
-  console.log(`Fetching departures for stop: ${stopNr}`);
   const response = await fetch(`${SWU_DEPARTURES_API_BASE_URL}${stopNr}`);
   if (!response.ok) {
     throw new Error(`HTTP-Fehler! Status: ${response.status}`);
   }
 
   const data: ApiResponse = await response.json();
-  console.log("Raw API Response data:", JSON.stringify(data, null, 2)); // Log the full raw response
 
   const mappedDepartures: Departure[] = data?.StopPassage?.DepartureData?.map(apiDep => {
     // API dates are already in ISO 8601 with timezone, so new Date() parses them directly.
@@ -84,14 +82,7 @@ export async function fetchDeparturesData(stopNr: string): Promise<Departure[]> 
 
     // The API already provides DepartureDeviation, so we can use it directly!
     const departureDeviation = apiDep.DepartureDeviation;
-
-    // Log individual mapping steps for debugging
-    console.log(`Mapping: RouteNumber: ${apiDep.RouteNumber}, ` +
-                `DepartureTimeScheduled (API): "${apiDep.DepartureTimeScheduled}", ` +
-                `DepartureTimeScheduled (Mapped ISO): "${isNaN(plannedDate.getTime()) ? '' : plannedDate.toISOString()}", ` +
-                `DepartureDirectionText (API): "${apiDep.DepartureDirectionText}", ` +
-                `DepartureDeviation (API): ${apiDep.DepartureDeviation}`);
-
+    
     return {
       RouteNumber: String(apiDep.RouteNumber), // Ensure RouteNumber is a string as per your type
       DepartureTimeScheduled: isNaN(plannedDate.getTime()) ? '' : plannedDate.toISOString(), // Store as reliable ISO string
