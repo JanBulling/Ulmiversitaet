@@ -2,17 +2,11 @@
 import { announcements } from "@/content/announcements";
 import Link from "@/ui/Link.astro";
 import FixedDeparturesDisplay from "../departure/FixedDeparturesDisplay.tsx"; // Import FixedDeparturesDisplay directly
+import allStops from '../departure/utils/allStops.json';
 
 // Define your list of available stops
 const allAvailableStops = [
-  { id: "1008", name: "Hauptbahnhof" }, // Example: Add more stops
-  { id: "1240", name: "Universität Süd" },
-  { id: "1241", name: "Botanischer Garten" },
-  { id: "1245", name: "Kliniken Wissenschaftsstadt" },
-  { id: "1246", name: "Universität West" },
-  { id: "1247", name: "Manfred-Börner Straße" },
-  { id: "1248", name: "Technische Hochschule" },
-
+  ...allStops,
 ];
 ---
 

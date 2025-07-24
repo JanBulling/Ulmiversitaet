@@ -12,4 +12,6 @@ export interface Departure {
 export interface StopOption {
   id: string;   // Unique identifier for the stop (e.g., "stop123")
   name: string; // Display name of the stop (e.g., "Münsterplatz")
+  lat: number;  // Latitude of the stop
+  long: number; // Longitude of the stop
 }
