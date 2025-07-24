@@ -91,6 +91,10 @@ export const studienwerkCard: LinkCard = {
   heading: "Studierendenwerk",
   links: [
     {
+      href: "https://stwulm.my-mensa.de/mensatogo.php?mensa=2&savereferer=1",
+      text: "Mensa West Bestellung",
+    },
+    {
       href: "https://studierendenwerk-ulm.de/bafoeg-finanzen/faq/",
       text: "BAföG",
       description: "Lohnt sich fast immer!",
