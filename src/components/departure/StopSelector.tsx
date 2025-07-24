@@ -39,21 +39,24 @@ const StopSelector: React.FC<StopSelectorProps> = ({ selectedStopId, allStops, o
             variant="ghost"
             role="combobox"
             aria-expanded={open}
-            className="w-auto justify-between px-0 text-xl font-bold text-foreground hover:bg-transparent hover:text-primary" // Changed text color to text-foreground
+            className="w-auto justify-between px-0 text-xl font-bold text-foreground hover:bg-transparent hover:text-primary"
           >
             {value
               ? allStops.find((stop) => stop.id === value)?.name
               : 'Haltestelle auswählen...'}
-            <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 text-muted-foreground" /> {/* Changed opacity-50 to text-muted-foreground */}
+            <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 text-muted-foreground" />
           </Button>
         </PopoverTrigger>
-        <PopoverContent 
+        <PopoverContent
           // Adjusted width: 80vw on small screens, 250px on medium and larger screens
-          className="w-[80vw] md:w-[250px] h-[300px] p-0 bg-popover text-popover-foreground border border-border" 
-        > 
+          className="w-[80vw] md:w-[250px] h-[300px] p-0 bg-popover text-popover-foreground border border-border"
+        >
           <Command className="h-full">
-            <CommandInput placeholder="Haltestelle suchen..." className="text-foreground placeholder:text-muted-foreground focus:ring-ring" /> {/* Added input styling */}
-            <CommandEmpty className="text-muted-foreground">Keine Haltestelle gefunden.</CommandEmpty> {/* Changed text color */}
+            <CommandInput
+              placeholder="Haltestelle suchen..."
+              className="text-lg text-foreground placeholder:text-muted-foreground focus:ring-ring" // Increased text size to text-lg
+            />
+            <CommandEmpty className="text-lg text-muted-foreground">Keine Haltestelle gefunden.</CommandEmpty> {/* Increased text size to text-lg */}
             <CommandGroup className="overflow-y-auto">
               {allStops.map((stop) => (
                 <CommandItem
@@ -64,12 +67,12 @@ const StopSelector: React.FC<StopSelectorProps> = ({ selectedStopId, allStops, o
                     onStopChange(stop.id);
                     setOpen(false);
                   }}
-                  className="aria-selected:bg-accent aria-selected:text-accent-foreground text-foreground" // Ensure command item text and selection colors
+                  className="aria-selected:bg-accent aria-selected:text-accent-foreground text-lg text-foreground" // Increased text size to text-lg
                 >
                   {stop.name}
                   <CheckIcon
                     className={cn(
-                      'ml-auto h-4 w-4 text-primary', // Checkmark uses primary color
+                      'ml-auto h-4 w-4 text-primary',
                       stop.id === value ? 'opacity-100' : 'opacity-0'
                     )}
                   />
