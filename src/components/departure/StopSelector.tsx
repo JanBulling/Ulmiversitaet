@@ -1,4 +1,3 @@
-// src/components/StopSelector.tsx
 import React from 'react';
 import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons';
 import { cn } from '@/lib/utils';
@@ -48,7 +47,10 @@ const StopSelector: React.FC<StopSelectorProps> = ({ selectedStopId, allStops, o
             <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 text-muted-foreground" /> {/* Changed opacity-50 to text-muted-foreground */}
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-[250px] h-[300px] p-0 bg-popover text-popover-foreground border border-border"> {/* Added popover styling */}
+        <PopoverContent 
+          // Adjusted width: 80vw on small screens, 250px on medium and larger screens
+          className="w-[80vw] md:w-[250px] h-[300px] p-0 bg-popover text-popover-foreground border border-border" 
+        > 
           <Command className="h-full">
             <CommandInput placeholder="Haltestelle suchen..." className="text-foreground placeholder:text-muted-foreground focus:ring-ring" /> {/* Added input styling */}
             <CommandEmpty className="text-muted-foreground">Keine Haltestelle gefunden.</CommandEmpty> {/* Changed text color */}
