@@ -49,7 +49,7 @@ const StopSelector: React.FC<StopSelectorProps> = ({ selectedStopId, allStops, o
         </PopoverTrigger>
         <PopoverContent
           // Adjusted width: 80vw on small screens, 250px on medium and larger screens
-          className="w-[80vw] md:w-[250px] h-[300px] p-0 bg-popover text-popover-foreground border border-border"
+          className="w-[80vw] md:w-[300px] h-[300px] p-0 bg-popover text-popover-foreground border border-border"
         >
           <Command className="h-full">
             <CommandInput
