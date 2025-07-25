@@ -39,8 +39,14 @@ const { drawer } = Astro.props;
     document.head.appendChild(css);
     if (theme === "dark") {
       element.classList.add("dark");
+      document.querySelectorAll("meta[name='theme-color']").forEach((meta) => {
+        meta.setAttribute("content", "#000000");
+      });
     } else {
       element.classList.remove("dark");
+      document.querySelectorAll("meta[name='theme-color']").forEach((meta) => {
+        meta.setAttribute("content", "#ffffff");
+      });
     }
     window.getComputedStyle(css).opacity;
     document.head.removeChild(css);
