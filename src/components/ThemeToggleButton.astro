@@ -70,8 +70,14 @@ const { drawer } = Astro.props;
 
     if (theme === "dark") {
       element.classList.add("dark");
+      document.querySelectorAll("meta[name='theme-color']").forEach((meta) => {
+        meta.setAttribute("content", "#000000");
+      });
     } else {
       element.classList.remove("dark");
+      document.querySelectorAll("meta[name='theme-color']").forEach((meta) => {
+        meta.setAttribute("content", "#ffffff");
+      });
     }
 
     localStorage.theme = theme;
