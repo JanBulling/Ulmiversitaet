@@ -1,7 +1,7 @@
 ---
 import { announcements } from "@/content/announcements";
 import Link from "@/ui/Link.astro";
-import FixedDeparturesDisplay from "../departure/FixedDeparturesDisplay.tsx"; // Import FixedDeparturesDisplay directly
+import UniversityDeparturesDisplay from "../departure/UniversityDeparturesDisplay.tsx"; // Import UniversityDeparturesDisplay directly
 import allStops from '../departure/utils/allStops.json';
 
 // Define your list of available stops
@@ -32,13 +32,15 @@ const allAvailableStops = [
     <div class="w-full md:w-3/4 flex flex-col items-center gap-4 md:items-end md:pl-8 order-1 md:order-2">
       {/* Render a single FixedDeparturesDisplay instance */}
       <div class="w-full p-2 md:max-w-lg">
-        <FixedDeparturesDisplay
+        <UniversityDeparturesDisplay
           client:load
           allStops={allAvailableStops}
-          initialStopId="1240"
-        />
+         />
       </div>
     </div>
+
+
+
 
     {/* Announcements Column - Now second in source, ordered first on desktop */}
     <div class="w-full md:w-1/3 flex-shrink-0 order-2 md:order-1">

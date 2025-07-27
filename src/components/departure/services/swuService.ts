@@ -3,7 +3,7 @@
 import type { Departure } from '../types';
 
 const SWU_DEPARTURES_API_BASE_URL =
-  'https://api.swu.de/mobility/v1/stop/passage/Departures?Limit=8&StopNumber=';
+  'https://api.swu.de/mobility/v1/stop/passage/Departures?Limit=10&StopNumber=';
 
 /**
  * Interface for a single departure object as it comes directly from the SWU API.

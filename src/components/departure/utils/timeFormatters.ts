@@ -10,10 +10,10 @@ export const formatCountdown = (scheduledTimeStr: string, deviationSeconds: numb
   } else if (diffSeconds < 0) {
     return 'Jetzt';
   } else if (diffSeconds < 60) {
-    return `in ${diffSeconds} s`;
+    return `${diffSeconds} s`;
   } else if (diffSeconds < 60 * 60) {
     const minutes = Math.ceil(diffSeconds / 60);
-    return `in ${minutes} min`;
+    return `${minutes} min`;
   } else {
     return actualDepartureTime.toLocaleTimeString('de-DE', {
       hour: '2-digit',
