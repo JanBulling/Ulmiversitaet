@@ -1,5 +1,5 @@
 // src/components/UniversityDeparturesDisplay.tsx
-import React, { useRef, useMemo, useState } from 'react';
+import React, { useRef, useMemo, useState, useEffect } from 'react';
 import { useDepartures } from '../departure/hooks/useDepartures';
 import { useRouteIcons } from '../departure/hooks/useRouteIcons';
 import { useCurrentTime } from '../departure/hooks/useCurrentTime';
@@ -146,12 +146,41 @@ const UniversityDeparturesDisplay: React.FC<UniversityDeparturesDisplayProps> = 
     setSearchTerm('');
   };
 
+  // Effect to manage body overflow for dialog
+  useEffect(() => {
+    if (isDialogOpen) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+    // Cleanup function
+    return () => {
+      document.body.classList.remove('modal-open');
+    };
+  }, [isDialogOpen]);
+
   return (
     <div ref={componentRef} className="bg-background rounded-xl shadow-xl p-4 relative flex-shrink-0">
-      {/* Title ÖPNV and Live Activity Ball to the right of the whole window */}
+      {/* Title Echtzeit-ÖPNV and Live Activity Ball to the right of the whole window */}
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-3xl font-bold text-foreground flex items-center gap-3">
-            Echtzeit-ÖPNV
+          {/* New Tram SVG Icon from user */}
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="size-8 text-primary" // Tailwind classes handle size and color
+          >
+            <rect x="5" y="5" width="14" height="15" rx="3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M8 2H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M5 16H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M16 16H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M12 5L12 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M7 22L8.00001 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M17 22L16 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          Echtzeit-ÖPNV
         </h2>
         {/* Live Activity Monitor - Moved to the right */}
         <div className="w-5 h-5 flex items-center justify-center">
@@ -233,8 +262,6 @@ const UniversityDeparturesDisplay: React.FC<UniversityDeparturesDisplayProps> = 
       {/* Tab Bar and Dialog */}
       <div className="flex items-center justify-between border-b pb-2 mb-3">
         <Tabs value={activeTabValue} onValueChange={(value) => {
-          // Only change activeTabValue for Uni Süd/West.
-          // Custom tab click is handled by its onClick handler to always open dialog.
           if (value !== customStopTabValue) {
             setCurrentStopId(value);
             setActiveTabValue(value);
@@ -243,10 +270,9 @@ const UniversityDeparturesDisplay: React.FC<UniversityDeparturesDisplayProps> = 
           <TabsList className="grid grid-cols-3 bg-secondary text-secondary-foreground">
             <TabsTrigger value={uniSuedStopId}>Uni Süd</TabsTrigger>
             <TabsTrigger value={uniWestStopId}>Uni West</TabsTrigger>
-            {/* Third tab: always opens dialog on click, and its value determines its active state */}
             <TabsTrigger
               value={customStopTabValue}
-              onClick={() => setIsDialogOpen(true)} // Always open dialog
+              onClick={() => setIsDialogOpen(true)}
             >
               {getCustomTabLabel}
             </TabsTrigger>
@@ -256,21 +282,13 @@ const UniversityDeparturesDisplay: React.FC<UniversityDeparturesDisplayProps> = 
 
       {/* The Dialog component itself with search functionality */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="sm:max-w-[425px] max-h-[80vh] flex flex-col">
+        <DialogContent className="sm:max-w-[425px] max-h-[50vh] sm:max-h-[80vh] flex flex-col rounded-2xl">
           <DialogHeader className="mb-4">
             <DialogTitle>Alle Haltestellen</DialogTitle>
             <DialogDescription>
-              Wähle eine Haltestelle aus der Liste, oder suche danach.
+              Wähle eine Haltestelle aus der Liste.
             </DialogDescription>
           </DialogHeader>
-          <div className="mb-4">
-            <Input
-              placeholder="Haltestelle suchen..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full"
-            />
-          </div>
           <div className="overflow-y-auto pr-4 flex-grow">
             <ul className="space-y-2">
               {filteredStops.length > 0 ? (
@@ -278,7 +296,7 @@ const UniversityDeparturesDisplay: React.FC<UniversityDeparturesDisplayProps> = 
                   <li key={stop.id}>
                     <Button
                       variant="ghost"
-                      className="w-full justify-start text-left text-foreground text-lg px-3 py-2 h-auto"
+                      className="w-full justify-start text-left text-foreground text-lg px-3 py-2 h-auto bg-primary/5"
                       onClick={() => handleStopSelect(stop.id)}
                     >
                       {stop.name}
@@ -289,6 +307,15 @@ const UniversityDeparturesDisplay: React.FC<UniversityDeparturesDisplayProps> = 
                 <li className="text-center text-muted-foreground py-4">Keine Haltestellen gefunden.</li>
               )}
             </ul>
+          </div>
+          <div className="mt-4">
+            <Input
+              placeholder="Haltestelle suchen..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full"
+              autoFocus={false}
+            />
           </div>
           <DialogFooter className="mt-4">
             <DialogClose asChild>
