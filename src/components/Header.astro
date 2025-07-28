@@ -1,60 +1,92 @@
 ---
+// src/components/Header.astro
 import { headerLinks, siteConfig } from "@/config";
 import { cn } from "@/lib/design-utils";
 import Link from "@/ui/Link.astro";
 import ThemeToggleButton from "./ThemeToggleButton.astro";
 import DrawerButton from "./DrawerButton.astro";
 import Logo from "./Logo.astro";
+import NetworkStatusDisplay from "./NetworkStatusDisplay.tsx"; // Ensure this path is correct
 
 const { pathname } = Astro.url;
+// This creates an array like ["about", "subpage"] for "/about/subpage"
 const subpath = pathname.match(/[^/]+/g);
 ---
 
 <header
-  id='header'
-  class='fixed top-0 w-full h-16 z-50 border-b bg-card border-border transition-all duration-300 ease-in-out'
+  id="header"
+  class="fixed top-0 w-full h-16 z-50 border-b bg-card border-border transition-all duration-300 ease-in-out"
 >
   <div
-    class='h-full mx-auto px-5 max-w-screen-xl flex items-center justify-between'
-  >
-    <!-- Logo -->
-    <Logo />
+    class="h-full mx-auto px-5 max-w-screen-xl flex items-center justify-between relative"
+    >
+    <div class="flex-shrink-0 z-10">
+      <Logo />
+    </div>
 
-    <nav class='hidden md:flex items-center justify-center gap-4'>
-      {
-        headerLinks.map((link) => (
+    <nav
+      class="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center justify-center"
+    >
+      <div class="flex items-center gap-4">
+        {headerLinks.map((link) => (
           <Link
             href={link.href}
             class={cn(
               pathname === link.href || "/" + subpath?.[0] === link.href
-                ? "font-semibold !text-black dark:!text-white"
+                ? "font-semibold !text-black dark:!text-white" // Active link style
                 : ""
             )}
           >
             {link.text}
           </Link>
-        ))
-      }
+        ))}
+      </div>
     </nav>
 
-    <div class='hidden md:block'>
-      <ThemeToggleButton />
-    </div>
+    <div class="flex-shrink-0 flex items-center gap-4 z-10">
+      <div class="hidden md:block">
+        <NetworkStatusDisplay client:load />
+      </div>
 
-    <div class='block md:hidden'>
-      <DrawerButton />
+      <div class="hidden md:block">
+        <ThemeToggleButton />
+      </div>
+
+      <div class="block md:hidden">
+        <DrawerButton />
+      </div>
     </div>
   </div>
 </header>
+
 <script is:inline>
+  // Script for header scroll behavior
   function onScroll() {
     const header = document.getElementById("header");
-    if (window.scrollY > 0) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
+    if (header) {
+      if (window.scrollY > 0) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
     }
   }
 
   document.addEventListener("scroll", onScroll);
+  document.addEventListener("DOMContentLoaded", onScroll);
 </script>
+
+<style is:global>
+  /* Optional: Styles for the scrolled header state */
+  #header.scrolled {
+    background-color: var(--card-background-scrolled, rgba(255, 255, 255, 0.9)); /* Lighter background on scroll */
+    backdrop-filter: blur(8px); /* Blur effect for transparency */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow on scroll */
+    border-bottom-color: var(--border-color-scrolled, rgba(0, 0, 0, 0.1));
+  }
+
+  .dark #header.scrolled {
+    background-color: var(--dark-card-background-scrolled, rgba(2, 6, 23, 0.8));
+    border-bottom-color: var(--dark-border-color-scrolled, rgba(255, 255, 255, 0.1));
+  }
+</style>

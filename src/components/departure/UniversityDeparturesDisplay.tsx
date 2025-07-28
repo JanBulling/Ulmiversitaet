@@ -2,7 +2,6 @@
 import React, { useRef, useMemo, useState, useEffect } from 'react';
 import { useDepartures } from '../departure/hooks/useDepartures';
 import { useRouteIcons } from '../departure/hooks/useRouteIcons';
-import { useCurrentTime } from '../departure/hooks/useCurrentTime';
 import { useComponentWidth } from '../departure/hooks/useComponentWidth';
 
 import DepartureListItem from './DepartureListItem';
@@ -58,11 +57,14 @@ const UniversityDeparturesDisplay: React.FC<UniversityDeparturesDisplayProps> = 
   } = useDepartures({ initialStopId: currentStopId, allStops });
 
   const routeIcons = useRouteIcons(departures);
-  const currentTime = useCurrentTime();
   const componentWidth = useComponentWidth(componentRef);
 
   const showCountdown = componentWidth > COUNTDOWN_HIDE_BREAKPOINT;
   const truncateDirectionText = componentWidth <= TEXT_TRUNCATE_BREAKPOINT;
+
+  const currentTime = useMemo(() => {
+    return new Date();
+  }, []);
 
   const displayedStopForCustomTab = useMemo(() => {
     return allStops.find(stop => stop.id === currentStopId);
@@ -120,7 +122,7 @@ const UniversityDeparturesDisplay: React.FC<UniversityDeparturesDisplayProps> = 
               key={i}
               departure={dep}
               routeIconUrl={routeIcons[dep.RouteNumber]}
-              currentTime={currentTime}
+              currentTime={dep.CurrentTimestamp}
               showCountdown={showCountdown}
               truncateDirectionText={truncateDirectionText}
             />
@@ -336,7 +338,7 @@ const UniversityDeparturesDisplay: React.FC<UniversityDeparturesDisplayProps> = 
               key={i}
               departure={dep}
               routeIconUrl={routeIcons[dep.RouteNumber]}
-              currentTime={currentTime}
+              currentTime={dep.CurrentTimestamp}
               showCountdown={showCountdown}
               truncateDirectionText={truncateDirectionText}
             />

@@ -4,6 +4,8 @@ import Link from "@/ui/Link.astro";
 import Logo from "./Logo.astro";
 import { Github, Instagram } from "lucide-astro";
 import { Button } from "@/ui/Button";
+// Import the NetworkStatusDisplay component
+import NetworkStatusDisplay from "./NetworkStatusDisplay.tsx";
 ---
 
 <footer
@@ -15,7 +17,14 @@ import { Button } from "@/ui/Button";
     <div
       class='w-full flex flex-col md:flex-row items-center justify-between gap-2'
     >
+
+
+
       <Logo size='sm' />
+
+      <div class="block md:hidden w-full flex justify-center mt-4">
+        <NetworkStatusDisplay client:load />
+      </div>
 
       <div class='gap-2 flex'>
         <Link href='/'>Home</Link>
@@ -33,6 +42,7 @@ import { Button } from "@/ui/Button";
         >
       </div>
     </div>
+
 
     <div class='flex items-center text-accent text-xs'>
       <p>&#169; {new Date().getFullYear()}</p>

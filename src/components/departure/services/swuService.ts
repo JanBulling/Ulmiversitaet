@@ -23,6 +23,7 @@ interface ApiDeparture {
   DepartureTimeActual: string;    // ISO 8601 string with timezone offset
   DepartureCountdown: number;     // Seconds until departure
   DepartureDeviation: number;     // Deviation in seconds (API provides this directly!)
+  CurrentTimestamp: string; // ISO 8601 string with timezone offset
   // Adding [key: string]: any; for any other unexpected properties
   [key: string]: any;
 }
@@ -79,7 +80,7 @@ export async function fetchDeparturesData(stopNr: string): Promise<Departure[]> 
     // Use the helper for safety/logging.
     const plannedDate = parseApiDateString(apiDep.DepartureTimeScheduled);
     const actualDate = parseApiDateString(apiDep.DepartureTimeActual); // Use actual for calculation if needed
-
+    const currentTimestamp = parseApiDateString(apiDep.CurrentTimestamp);
     // The API already provides DepartureDeviation, so we can use it directly!
     const departureDeviation = apiDep.DepartureDeviation;
     
@@ -88,6 +89,7 @@ export async function fetchDeparturesData(stopNr: string): Promise<Departure[]> 
       DepartureTimeScheduled: isNaN(plannedDate.getTime()) ? '' : plannedDate.toISOString(), // Store as reliable ISO string
       DepartureDirectionText: apiDep.DepartureDirectionText, // Directly use the correct API property
       DepartureDeviation: departureDeviation, // Use the deviation provided by API
+      CurrentTimestamp: isNaN(currentTimestamp.getTime()) ? new Date() : currentTimestamp, // Use current timestamp from API
     };
   }) || [];
 

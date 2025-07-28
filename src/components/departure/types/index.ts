@@ -6,6 +6,7 @@ export interface Departure {
   DepartureTimeScheduled: string; // e.g., "2025-07-16T22:45:00Z"
   DepartureDirectionText: string; // e.g., "Hauptbahnhof"
   DepartureDeviation: number;     // Deviation from scheduled time in seconds (e.g., 60 for +1 minute)
+  CurrentTimestamp: Date;       // Current time in ISO format (e.g., "2025-07-16T22:45:00Z")
 }
 
 // Defines the structure for an option in your stop selection dropdown
