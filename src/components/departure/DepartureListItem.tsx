@@ -28,8 +28,9 @@ const DepartureListItem: React.FC<DepartureListItemProps> = ({
   return (
     <li className="border-b dark:border-gray-700 pb-2 last:border-none">
       <div className="flex items-center gap-2 text-sm pr-4">
+        {/* Fallback to a default image if routeIconUrl is null or undefined */}
         <img
-          src={routeIconUrl || '/icons/tram_logo.png'}
+          src={routeIconUrl || '/icons/tram_logo.png'} // Ensure '/icons/tram_logo.png' exists or choose another fallback
           alt={`Linie ${departure.RouteNumber}`}
           className="w-6 h-6 flex-shrink-0"
         />
@@ -45,11 +46,14 @@ const DepartureListItem: React.FC<DepartureListItemProps> = ({
         </div>
         {showCountdown && (
           <span
-            className={`font-semibold text-sm flex-shrink-0 ${
-              countdownText === 'Abgefahren' || countdownText === 'Jetzt'
+            className={`font-semibold text-sm flex-shrink-0
+              ${countdownText === 'Abgefahren'
                 ? 'text-gray-500 dark:text-gray-400'
-                : 'text-gray-700 dark:text-gray-400'
-            }`}
+                : countdownText === 'Jetzt' // Apply pulse animation and primary color for "Jetzt"
+                  ? 'text-primary animate-pulse-now' // <--- Key change here
+                  : 'text-gray-700 dark:text-gray-400'
+              }`
+            }
           >
             {countdownText}
           </span>

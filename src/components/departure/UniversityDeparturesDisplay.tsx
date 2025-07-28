@@ -313,7 +313,8 @@ const UniversityDeparturesDisplay: React.FC<UniversityDeparturesDisplayProps> = 
               placeholder="Haltestelle suchen..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full"
+              // ADDED: Ensuring font-size is at least 16px to prevent iOS zoom
+              className="w-full text-base"
               autoFocus={false}
             />
           </div>
