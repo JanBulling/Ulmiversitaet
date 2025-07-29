@@ -62,9 +62,20 @@ const UniversityDeparturesDisplay: React.FC<UniversityDeparturesDisplayProps> = 
   const showCountdown = componentWidth > COUNTDOWN_HIDE_BREAKPOINT;
   const truncateDirectionText = componentWidth <= TEXT_TRUNCATE_BREAKPOINT;
 
-  const currentTime = useMemo(() => {
-    return new Date();
-  }, []);
+  // --- START: Changes for live countdown ---
+  // 1. useState to hold the current time
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  // 2. useEffect to update currentTime every second
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000); // Update every 1000ms (1 second)
+
+    // Cleanup function to clear the interval when the component unmounts
+    return () => clearInterval(timer);
+  }, []); // Empty dependency array means this effect runs once on mount and cleans up on unmount
+  // --- END: Changes for live countdown ---
 
   const displayedStopForCustomTab = useMemo(() => {
     return allStops.find(stop => stop.id === currentStopId);
@@ -122,7 +133,7 @@ const UniversityDeparturesDisplay: React.FC<UniversityDeparturesDisplayProps> = 
               key={i}
               departure={dep}
               routeIconUrl={routeIcons[dep.RouteNumber]}
-              currentTime={dep.CurrentTimestamp}
+              currentTime={currentTime} // Pass the continuously updating currentTime
               showCountdown={showCountdown}
               truncateDirectionText={truncateDirectionText}
             />
@@ -132,8 +143,7 @@ const UniversityDeparturesDisplay: React.FC<UniversityDeparturesDisplayProps> = 
     }
 
     return null;
-  }, [currentStopId, isLoading, departures, error, routeIcons, currentTime, showCountdown, truncateDirectionText]);
-
+  }, [currentStopId, isLoading, departures, error, routeIcons, currentTime, showCountdown, truncateDirectionText]); // currentTime is now a dependency
 
   const handleStopSelect = (stopId: string) => {
     setCurrentStopId(stopId);
@@ -331,20 +341,7 @@ const UniversityDeparturesDisplay: React.FC<UniversityDeparturesDisplayProps> = 
       </Dialog>
 
       {/* Departure Content */}
-      {departures.length > 0 && (
-        <ul className="space-y-2 max-h-[220px] overflow-y-auto scrollbar-gutter">
-          {departures.slice(0, 10).map((dep, i) => (
-            <DepartureListItem
-              key={i}
-              departure={dep}
-              routeIconUrl={routeIcons[dep.RouteNumber]}
-              currentTime={dep.CurrentTimestamp}
-              showCountdown={showCountdown}
-              truncateDirectionText={truncateDirectionText}
-            />
-          ))}
-        </ul>
-      )}
+      {renderDepartureContent}
     </div>
   );
 };
