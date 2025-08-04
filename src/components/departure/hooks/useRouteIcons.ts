@@ -14,6 +14,13 @@ const generateRouteIcon = (routeNumber: string): string => {
   const defaultBorderColor = '#000000';
   const defaultTextColor = '#000000';
 
+  if (routeNumber === "101") { // Linie 1 als Bus
+      routeNumber = '1';
+  } else if (routeNumber === "102") { // Linie 2 als Bus
+      routeNumber = '2';
+  }
+
+
   let bgColor = lineColorData[routeNumber as keyof typeof lineColorData];
   let textColor = '#FFFFFF';
   let borderColor = 'transparent';
@@ -33,7 +40,11 @@ const generateRouteIcon = (routeNumber: string): string => {
     bgColor = '#FFFFFF'; // Specific color for route 202
     textColor = '#000000'; // Black text for better contrast
     routeNumber = 'S';
-  } 
+  } else if (routeNumber === "19") {
+    bgColor = '#FFFFFF'; // White background for route 19
+    textColor = '#000000'; // Black text for better contrast
+    routeNumber = 'E';
+  }
 
   let svgShape: string;
   if (isSquare) {

@@ -1,10 +1,13 @@
 ### Angaben gemäß § 5 TMG
 
 Betreiber der Website:
-Jan Bulling, Stefan Rau
 
-Kontakt:
-E-Mail: [stefan.rau@uni-ulm.de](mailto:stefan.rau@uni-ulm.de)
+Jan Bulling, Stefan Rau  
+Yorckstraße 19  
+89077 Ulm  
+
+Kontakt:  
+E-Mail: [info@ulmiversitaet.de](mailto:info@ulmiversitaet.de)
 
 ### Haftung für Inhalte
 

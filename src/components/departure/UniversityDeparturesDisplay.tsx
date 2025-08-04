@@ -41,6 +41,7 @@ const UniversityDeparturesDisplay: React.FC<UniversityDeparturesDisplayProps> = 
 
   const uniSuedStopId = '1240';
   const uniWestStopId = '1246';
+
   const customStopTabValue = 'custom-stop-selection';
 
   const [currentStopId, setCurrentStopId] = useState<string>(uniSuedStopId);
@@ -264,9 +265,7 @@ const UniversityDeparturesDisplay: React.FC<UniversityDeparturesDisplayProps> = 
       {isLoading && departures.length === 0 && !error && (
         <div className="text-center text-muted-foreground mb-3">Lade Abfahrten...</div>
       )}
-      {!isLoading && !error && departures.length === 0 && currentStopId && (
-        <div className="text-muted-foreground mb-3">Keine bevorstehenden Abfahrten.</div>
-      )}
+
       {!currentStopId && !isLoading && !error && (
         <div className="text-center text-muted-foreground mb-3">Bitte eine Haltestelle auswählen.</div>
       )}

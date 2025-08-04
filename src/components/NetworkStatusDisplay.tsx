@@ -1,14 +1,14 @@
 // src/components/NetworkStatusDisplay.tsx
 import React, { useState, useEffect } from 'react';
 
-// IP-Bereiche für Uni Ulm VPN (wie zuvor)
+// IP-Bereiche für Uni Ulm VPN
 const UniUlmVpnIpRanges = [
   '134.60.240.0/23',
   '134.60.246.0/23',
   '134.60.248.0/22'
 ];
 
-// NEU: IP-Bereiche für Uni Ulm Eduroam
+// IP-Bereiche für Uni Ulm Eduroam
 const EduroamIpRanges = [
   '134.60.0.0/16',      // Größerer Bereich für Uni Ulm, der auch Eduroam umfassen sollte
   '193.197.64.0/22'     // Spezifischerer Eduroam-Bereich
@@ -78,7 +78,7 @@ const NetworkStatusDisplay: React.FC = () => {
         <span>
           {connectionType === 'vpn'
             ? 'Verbunden mit Uni Ulm VPN'
-            : 'Verbunden mit Eduroam (Uni Ulm)'}
+            : 'Verbunden mit eduroam®'}
         </span>
       </div>
     );
